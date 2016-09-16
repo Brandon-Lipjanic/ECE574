@@ -1,0 +1,7 @@
+verilog work "SUB.v"
+verilog work "REG.v"
+verilog work "MUX2x1.v"
+verilog work "MUL.v"
+verilog work "COMP.v"
+verilog work "ADD.v"
+verilog work "Circuit1.v"

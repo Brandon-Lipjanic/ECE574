@@ -1,0 +1,880 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.19 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.19 secs
+ 
+--> Reading design: Circuit7.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Circuit7.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Circuit7"
+Output Format                      : NGC
+Target Device                      : xc7a100t-3-csg324
+
+---- Source Options
+Top Module Name                    : Circuit7
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "C:\Users\Brandon\Documents\School\ECE574\Assignment1\REG.v" into library work
+Parsing module <REG>.
+Analyzing Verilog file "C:\Users\Brandon\Documents\School\ECE574\Assignment1\MUX2x1.v" into library work
+Parsing module <MUX2x1>.
+Analyzing Verilog file "C:\Users\Brandon\Documents\School\ECE574\Assignment1\MUL.v" into library work
+Parsing module <MUL>.
+Analyzing Verilog file "C:\Users\Brandon\Documents\School\ECE574\Assignment1\COMP.v" into library work
+Parsing module <COMP>.
+Analyzing Verilog file "C:\Users\Brandon\Documents\School\ECE574\Assignment1\ADD.v" into library work
+Parsing module <ADD>.
+Analyzing Verilog file "C:\Users\Brandon\Documents\School\ECE574\Assignment1\Circuit7.v" into library work
+Parsing module <Circuit7>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <Circuit7>.
+
+Elaborating module <MUL(DATAWIDTH=64)>.
+
+Elaborating module <ADD(DATAWIDTH=64)>.
+WARNING:HDLCompiler:189 - "C:\Users\Brandon\Documents\School\ECE574\Assignment1\Circuit7.v" Line 47: Size mismatch in connection of port <a>. Formal port size is 64-bit while actual signal size is 32-bit.
+
+Elaborating module <COMP(DATAWIDTH=64)>.
+
+Elaborating module <MUX2x1(DATAWIDTH=64)>.
+
+Elaborating module <REG(DATAWIDTH=64)>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <Circuit7>.
+    Related source file is "C:\Users\Brandon\Documents\School\ECE574\Assignment1\Circuit7.v".
+INFO:Xst:3210 - "C:\Users\Brandon\Documents\School\ECE574\Assignment1\Circuit7.v" line 52: Output port <gt> of the instance <first_comp> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Brandon\Documents\School\ECE574\Assignment1\Circuit7.v" line 52: Output port <lt> of the instance <first_comp> is unconnected or connected to loadless signal.
+    Summary:
+	no macro.
+Unit <Circuit7> synthesized.
+
+Synthesizing Unit <MUL>.
+    Related source file is "C:\Users\Brandon\Documents\School\ECE574\Assignment1\MUL.v".
+        DATAWIDTH = 64
+    Found 64x64-bit multiplier for signal <n0003> created at line 30.
+    Summary:
+	inferred   1 Multiplier(s).
+Unit <MUL> synthesized.
+
+Synthesizing Unit <div_1u_64u>.
+    Related source file is "".
+    Found 65-bit adder for signal <n0277> created at line 0.
+    Found 65-bit adder for signal <GND_4_o_b[63]_add_1_OUT> created at line 0.
+    Found 65-bit comparator lessequal for signal <BUS_0001> created at line 0
+    Found 64-bit comparator lessequal for signal <BUS_0002> created at line 0
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <div_1u_64u> synthesized.
+
+Synthesizing Unit <ADD>.
+    Related source file is "C:\Users\Brandon\Documents\School\ECE574\Assignment1\ADD.v".
+        DATAWIDTH = 64
+    Summary:
+	no macro.
+Unit <ADD> synthesized.
+
+Synthesizing Unit <mod_64u_64u>.
+    Related source file is "".
+    Found 128-bit adder for signal <n13004> created at line 0.
+    Found 128-bit adder for signal <GND_6_o_b[63]_add_1_OUT> created at line 0.
+    Found 127-bit adder for signal <n13008> created at line 0.
+    Found 127-bit adder for signal <GND_6_o_b[63]_add_3_OUT> created at line 0.
+    Found 126-bit adder for signal <n13012> created at line 0.
+    Found 126-bit adder for signal <GND_6_o_b[63]_add_5_OUT> created at line 0.
+    Found 125-bit adder for signal <n13016> created at line 0.
+    Found 125-bit adder for signal <GND_6_o_b[63]_add_7_OUT> created at line 0.
+    Found 124-bit adder for signal <n13020> created at line 0.
+    Found 124-bit adder for signal <GND_6_o_b[63]_add_9_OUT> created at line 0.
+    Found 123-bit adder for signal <n13024> created at line 0.
+    Found 123-bit adder for signal <GND_6_o_b[63]_add_11_OUT> created at line 0.
+    Found 122-bit adder for signal <n13028> created at line 0.
+    Found 122-bit adder for signal <GND_6_o_b[63]_add_13_OUT> created at line 0.
+    Found 121-bit adder for signal <n13032> created at line 0.
+    Found 121-bit adder for signal <GND_6_o_b[63]_add_15_OUT> created at line 0.
+    Found 120-bit adder for signal <n13036> created at line 0.
+    Found 120-bit adder for signal <GND_6_o_b[63]_add_17_OUT> created at line 0.
+    Found 119-bit adder for signal <n13040> created at line 0.
+    Found 119-bit adder for signal <GND_6_o_b[63]_add_19_OUT> created at line 0.
+    Found 118-bit adder for signal <n13044> created at line 0.
+    Found 118-bit adder for signal <GND_6_o_b[63]_add_21_OUT> created at line 0.
+    Found 117-bit adder for signal <n13048> created at line 0.
+    Found 117-bit adder for signal <GND_6_o_b[63]_add_23_OUT> created at line 0.
+    Found 116-bit adder for signal <n13052> created at line 0.
+    Found 116-bit adder for signal <GND_6_o_b[63]_add_25_OUT> created at line 0.
+    Found 115-bit adder for signal <n13056> created at line 0.
+    Found 115-bit adder for signal <GND_6_o_b[63]_add_27_OUT> created at line 0.
+    Found 114-bit adder for signal <n13060> created at line 0.
+    Found 114-bit adder for signal <GND_6_o_b[63]_add_29_OUT> created at line 0.
+    Found 113-bit adder for signal <n13064> created at line 0.
+    Found 113-bit adder for signal <GND_6_o_b[63]_add_31_OUT> created at line 0.
+    Found 112-bit adder for signal <n13068> created at line 0.
+    Found 112-bit adder for signal <GND_6_o_b[63]_add_33_OUT> created at line 0.
+    Found 111-bit adder for signal <n13072> created at line 0.
+    Found 111-bit adder for signal <GND_6_o_b[63]_add_35_OUT> created at line 0.
+    Found 110-bit adder for signal <n13076> created at line 0.
+    Found 110-bit adder for signal <GND_6_o_b[63]_add_37_OUT> created at line 0.
+    Found 109-bit adder for signal <n13080> created at line 0.
+    Found 109-bit adder for signal <GND_6_o_b[63]_add_39_OUT> created at line 0.
+    Found 108-bit adder for signal <n13084> created at line 0.
+    Found 108-bit adder for signal <GND_6_o_b[63]_add_41_OUT> created at line 0.
+    Found 107-bit adder for signal <n13088> created at line 0.
+    Found 107-bit adder for signal <GND_6_o_b[63]_add_43_OUT> created at line 0.
+    Found 106-bit adder for signal <n13092> created at line 0.
+    Found 106-bit adder for signal <GND_6_o_b[63]_add_45_OUT> created at line 0.
+    Found 105-bit adder for signal <n13096> created at line 0.
+    Found 105-bit adder for signal <GND_6_o_b[63]_add_47_OUT> created at line 0.
+    Found 104-bit adder for signal <n13100> created at line 0.
+    Found 104-bit adder for signal <GND_6_o_b[63]_add_49_OUT> created at line 0.
+    Found 103-bit adder for signal <n13104> created at line 0.
+    Found 103-bit adder for signal <GND_6_o_b[63]_add_51_OUT> created at line 0.
+    Found 102-bit adder for signal <n13108> created at line 0.
+    Found 102-bit adder for signal <GND_6_o_b[63]_add_53_OUT> created at line 0.
+    Found 101-bit adder for signal <n13112> created at line 0.
+    Found 101-bit adder for signal <GND_6_o_b[63]_add_55_OUT> created at line 0.
+    Found 100-bit adder for signal <n13116> created at line 0.
+    Found 100-bit adder for signal <GND_6_o_b[63]_add_57_OUT> created at line 0.
+    Found 99-bit adder for signal <n13120> created at line 0.
+    Found 99-bit adder for signal <GND_6_o_b[63]_add_59_OUT> created at line 0.
+    Found 98-bit adder for signal <n13124> created at line 0.
+    Found 98-bit adder for signal <GND_6_o_b[63]_add_61_OUT> created at line 0.
+    Found 97-bit adder for signal <n13128> created at line 0.
+    Found 97-bit adder for signal <GND_6_o_b[63]_add_63_OUT> created at line 0.
+    Found 96-bit adder for signal <n13132> created at line 0.
+    Found 96-bit adder for signal <GND_6_o_b[63]_add_65_OUT> created at line 0.
+    Found 95-bit adder for signal <n13136> created at line 0.
+    Found 95-bit adder for signal <GND_6_o_b[63]_add_67_OUT> created at line 0.
+    Found 94-bit adder for signal <n13140> created at line 0.
+    Found 94-bit adder for signal <GND_6_o_b[63]_add_69_OUT> created at line 0.
+    Found 93-bit adder for signal <n13144> created at line 0.
+    Found 93-bit adder for signal <GND_6_o_b[63]_add_71_OUT> created at line 0.
+    Found 92-bit adder for signal <n13148> created at line 0.
+    Found 92-bit adder for signal <GND_6_o_b[63]_add_73_OUT> created at line 0.
+    Found 91-bit adder for signal <n13152> created at line 0.
+    Found 91-bit adder for signal <GND_6_o_b[63]_add_75_OUT> created at line 0.
+    Found 90-bit adder for signal <n13156> created at line 0.
+    Found 90-bit adder for signal <GND_6_o_b[63]_add_77_OUT> created at line 0.
+    Found 89-bit adder for signal <n13160> created at line 0.
+    Found 89-bit adder for signal <GND_6_o_b[63]_add_79_OUT> created at line 0.
+    Found 88-bit adder for signal <n13164> created at line 0.
+    Found 88-bit adder for signal <GND_6_o_b[63]_add_81_OUT> created at line 0.
+    Found 87-bit adder for signal <n13168> created at line 0.
+    Found 87-bit adder for signal <GND_6_o_b[63]_add_83_OUT> created at line 0.
+    Found 86-bit adder for signal <n13172> created at line 0.
+    Found 86-bit adder for signal <GND_6_o_b[63]_add_85_OUT> created at line 0.
+    Found 85-bit adder for signal <n13176> created at line 0.
+    Found 85-bit adder for signal <GND_6_o_b[63]_add_87_OUT> created at line 0.
+    Found 84-bit adder for signal <n13180> created at line 0.
+    Found 84-bit adder for signal <GND_6_o_b[63]_add_89_OUT> created at line 0.
+    Found 83-bit adder for signal <n13184> created at line 0.
+    Found 83-bit adder for signal <GND_6_o_b[63]_add_91_OUT> created at line 0.
+    Found 82-bit adder for signal <n13188> created at line 0.
+    Found 82-bit adder for signal <GND_6_o_b[63]_add_93_OUT> created at line 0.
+    Found 81-bit adder for signal <n13192> created at line 0.
+    Found 81-bit adder for signal <GND_6_o_b[63]_add_95_OUT> created at line 0.
+    Found 80-bit adder for signal <n13196> created at line 0.
+    Found 80-bit adder for signal <GND_6_o_b[63]_add_97_OUT> created at line 0.
+    Found 79-bit adder for signal <n13200> created at line 0.
+    Found 79-bit adder for signal <GND_6_o_b[63]_add_99_OUT> created at line 0.
+    Found 78-bit adder for signal <n13204> created at line 0.
+    Found 78-bit adder for signal <GND_6_o_b[63]_add_101_OUT> created at line 0.
+    Found 77-bit adder for signal <n13208> created at line 0.
+    Found 77-bit adder for signal <GND_6_o_b[63]_add_103_OUT> created at line 0.
+    Found 76-bit adder for signal <n13212> created at line 0.
+    Found 76-bit adder for signal <GND_6_o_b[63]_add_105_OUT> created at line 0.
+    Found 75-bit adder for signal <n13216> created at line 0.
+    Found 75-bit adder for signal <GND_6_o_b[63]_add_107_OUT> created at line 0.
+    Found 74-bit adder for signal <n13220> created at line 0.
+    Found 74-bit adder for signal <GND_6_o_b[63]_add_109_OUT> created at line 0.
+    Found 73-bit adder for signal <n13224> created at line 0.
+    Found 73-bit adder for signal <GND_6_o_b[63]_add_111_OUT> created at line 0.
+    Found 72-bit adder for signal <n13228> created at line 0.
+    Found 72-bit adder for signal <GND_6_o_b[63]_add_113_OUT> created at line 0.
+    Found 71-bit adder for signal <n13232> created at line 0.
+    Found 71-bit adder for signal <GND_6_o_b[63]_add_115_OUT> created at line 0.
+    Found 70-bit adder for signal <n13236> created at line 0.
+    Found 70-bit adder for signal <GND_6_o_b[63]_add_117_OUT> created at line 0.
+    Found 69-bit adder for signal <n13240> created at line 0.
+    Found 69-bit adder for signal <GND_6_o_b[63]_add_119_OUT> created at line 0.
+    Found 68-bit adder for signal <n13244> created at line 0.
+    Found 68-bit adder for signal <GND_6_o_b[63]_add_121_OUT> created at line 0.
+    Found 67-bit adder for signal <n13248> created at line 0.
+    Found 67-bit adder for signal <GND_6_o_b[63]_add_123_OUT> created at line 0.
+    Found 66-bit adder for signal <n13252> created at line 0.
+    Found 66-bit adder for signal <GND_6_o_b[63]_add_125_OUT> created at line 0.
+    Found 65-bit adder for signal <n13256> created at line 0.
+    Found 65-bit adder for signal <GND_6_o_b[63]_add_127_OUT> created at line 0.
+    Found 64-bit adder for signal <n13260> created at line 0.
+    Found 64-bit adder for signal <a[63]_b[63]_add_129_OUT[63:0]> created at line 0.
+    Found 128-bit comparator lessequal for signal <BUS_0001> created at line 0
+    Found 127-bit comparator lessequal for signal <BUS_0002> created at line 0
+    Found 126-bit comparator lessequal for signal <BUS_0003> created at line 0
+    Found 125-bit comparator lessequal for signal <BUS_0004> created at line 0
+    Found 124-bit comparator lessequal for signal <BUS_0005> created at line 0
+    Found 123-bit comparator lessequal for signal <BUS_0006> created at line 0
+    Found 122-bit comparator lessequal for signal <BUS_0007> created at line 0
+    Found 121-bit comparator lessequal for signal <BUS_0008> created at line 0
+    Found 120-bit comparator lessequal for signal <BUS_0009> created at line 0
+    Found 119-bit comparator lessequal for signal <BUS_0010> created at line 0
+    Found 118-bit comparator lessequal for signal <BUS_0011> created at line 0
+    Found 117-bit comparator lessequal for signal <BUS_0012> created at line 0
+    Found 116-bit comparator lessequal for signal <BUS_0013> created at line 0
+    Found 115-bit comparator lessequal for signal <BUS_0014> created at line 0
+    Found 114-bit comparator lessequal for signal <BUS_0015> created at line 0
+    Found 113-bit comparator lessequal for signal <BUS_0016> created at line 0
+    Found 112-bit comparator lessequal for signal <BUS_0017> created at line 0
+    Found 111-bit comparator lessequal for signal <BUS_0018> created at line 0
+    Found 110-bit comparator lessequal for signal <BUS_0019> created at line 0
+    Found 109-bit comparator lessequal for signal <BUS_0020> created at line 0
+    Found 108-bit comparator lessequal for signal <BUS_0021> created at line 0
+    Found 107-bit comparator lessequal for signal <BUS_0022> created at line 0
+    Found 106-bit comparator lessequal for signal <BUS_0023> created at line 0
+    Found 105-bit comparator lessequal for signal <BUS_0024> created at line 0
+    Found 104-bit comparator lessequal for signal <BUS_0025> created at line 0
+    Found 103-bit comparator lessequal for signal <BUS_0026> created at line 0
+    Found 102-bit comparator lessequal for signal <BUS_0027> created at line 0
+    Found 101-bit comparator lessequal for signal <BUS_0028> created at line 0
+    Found 100-bit comparator lessequal for signal <BUS_0029> created at line 0
+    Found 99-bit comparator lessequal for signal <BUS_0030> created at line 0
+    Found 98-bit comparator lessequal for signal <BUS_0031> created at line 0
+    Found 97-bit comparator lessequal for signal <BUS_0032> created at line 0
+    Found 96-bit comparator lessequal for signal <BUS_0033> created at line 0
+    Found 95-bit comparator lessequal for signal <BUS_0034> created at line 0
+    Found 94-bit comparator lessequal for signal <BUS_0035> created at line 0
+    Found 93-bit comparator lessequal for signal <BUS_0036> created at line 0
+    Found 92-bit comparator lessequal for signal <BUS_0037> created at line 0
+    Found 91-bit comparator lessequal for signal <BUS_0038> created at line 0
+    Found 90-bit comparator lessequal for signal <BUS_0039> created at line 0
+    Found 89-bit comparator lessequal for signal <BUS_0040> created at line 0
+    Found 88-bit comparator lessequal for signal <BUS_0041> created at line 0
+    Found 87-bit comparator lessequal for signal <BUS_0042> created at line 0
+    Found 86-bit comparator lessequal for signal <BUS_0043> created at line 0
+    Found 85-bit comparator lessequal for signal <BUS_0044> created at line 0
+    Found 84-bit comparator lessequal for signal <BUS_0045> created at line 0
+    Found 83-bit comparator lessequal for signal <BUS_0046> created at line 0
+    Found 82-bit comparator lessequal for signal <BUS_0047> created at line 0
+    Found 81-bit comparator lessequal for signal <BUS_0048> created at line 0
+    Found 80-bit comparator lessequal for signal <BUS_0049> created at line 0
+    Found 79-bit comparator lessequal for signal <BUS_0050> created at line 0
+    Found 78-bit comparator lessequal for signal <BUS_0051> created at line 0
+    Found 77-bit comparator lessequal for signal <BUS_0052> created at line 0
+    Found 76-bit comparator lessequal for signal <BUS_0053> created at line 0
+    Found 75-bit comparator lessequal for signal <BUS_0054> created at line 0
+    Found 74-bit comparator lessequal for signal <BUS_0055> created at line 0
+    Found 73-bit comparator lessequal for signal <BUS_0056> created at line 0
+    Found 72-bit comparator lessequal for signal <BUS_0057> created at line 0
+    Found 71-bit comparator lessequal for signal <BUS_0058> created at line 0
+    Found 70-bit comparator lessequal for signal <BUS_0059> created at line 0
+    Found 69-bit comparator lessequal for signal <BUS_0060> created at line 0
+    Found 68-bit comparator lessequal for signal <BUS_0061> created at line 0
+    Found 67-bit comparator lessequal for signal <BUS_0062> created at line 0
+    Found 66-bit comparator lessequal for signal <BUS_0063> created at line 0
+    Found 65-bit comparator lessequal for signal <BUS_0064> created at line 0
+    Found 64-bit comparator lessequal for signal <BUS_0065> created at line 0
+    Summary:
+	inferred 130 Adder/Subtractor(s).
+	inferred  65 Comparator(s).
+	inferred 4034 Multiplexer(s).
+Unit <mod_64u_64u> synthesized.
+
+Synthesizing Unit <COMP>.
+    Related source file is "C:\Users\Brandon\Documents\School\ECE574\Assignment1\COMP.v".
+        DATAWIDTH = 64
+    Found 64-bit comparator greater for signal <gt> created at line 30
+    Found 64-bit comparator greater for signal <a[63]_b[63]_LessThan_2_o> created at line 36
+    Summary:
+	inferred   2 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <COMP> synthesized.
+
+Synthesizing Unit <MUX2x1>.
+    Related source file is "C:\Users\Brandon\Documents\School\ECE574\Assignment1\MUX2x1.v".
+        DATAWIDTH = 64
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <MUX2x1> synthesized.
+
+Synthesizing Unit <REG>.
+    Related source file is "C:\Users\Brandon\Documents\School\ECE574\Assignment1\REG.v".
+        DATAWIDTH = 64
+WARNING:Xst:647 - Input <Rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 64-bit register for signal <RegData>.
+    Summary:
+	inferred  64 D-type flip-flop(s).
+Unit <REG> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 2
+ 64x64-bit multiplier                                  : 2
+# Adders/Subtractors                                   : 134
+ 100-bit adder                                         : 2
+ 101-bit adder                                         : 2
+ 102-bit adder                                         : 2
+ 103-bit adder                                         : 2
+ 104-bit adder                                         : 2
+ 105-bit adder                                         : 2
+ 106-bit adder                                         : 2
+ 107-bit adder                                         : 2
+ 108-bit adder                                         : 2
+ 109-bit adder                                         : 2
+ 110-bit adder                                         : 2
+ 111-bit adder                                         : 2
+ 112-bit adder                                         : 2
+ 113-bit adder                                         : 2
+ 114-bit adder                                         : 2
+ 115-bit adder                                         : 2
+ 116-bit adder                                         : 2
+ 117-bit adder                                         : 2
+ 118-bit adder                                         : 2
+ 119-bit adder                                         : 2
+ 120-bit adder                                         : 2
+ 121-bit adder                                         : 2
+ 122-bit adder                                         : 2
+ 123-bit adder                                         : 2
+ 124-bit adder                                         : 2
+ 125-bit adder                                         : 2
+ 126-bit adder                                         : 2
+ 127-bit adder                                         : 2
+ 128-bit adder                                         : 2
+ 64-bit adder                                          : 2
+ 65-bit adder                                          : 6
+ 66-bit adder                                          : 2
+ 67-bit adder                                          : 2
+ 68-bit adder                                          : 2
+ 69-bit adder                                          : 2
+ 70-bit adder                                          : 2
+ 71-bit adder                                          : 2
+ 72-bit adder                                          : 2
+ 73-bit adder                                          : 2
+ 74-bit adder                                          : 2
+ 75-bit adder                                          : 2
+ 76-bit adder                                          : 2
+ 77-bit adder                                          : 2
+ 78-bit adder                                          : 2
+ 79-bit adder                                          : 2
+ 80-bit adder                                          : 2
+ 81-bit adder                                          : 2
+ 82-bit adder                                          : 2
+ 83-bit adder                                          : 2
+ 84-bit adder                                          : 2
+ 85-bit adder                                          : 2
+ 86-bit adder                                          : 2
+ 87-bit adder                                          : 2
+ 88-bit adder                                          : 2
+ 89-bit adder                                          : 2
+ 90-bit adder                                          : 2
+ 91-bit adder                                          : 2
+ 92-bit adder                                          : 2
+ 93-bit adder                                          : 2
+ 94-bit adder                                          : 2
+ 95-bit adder                                          : 2
+ 96-bit adder                                          : 2
+ 97-bit adder                                          : 2
+ 98-bit adder                                          : 2
+ 99-bit adder                                          : 2
+# Registers                                            : 1
+ 64-bit register                                       : 1
+# Comparators                                          : 71
+ 100-bit comparator lessequal                          : 1
+ 101-bit comparator lessequal                          : 1
+ 102-bit comparator lessequal                          : 1
+ 103-bit comparator lessequal                          : 1
+ 104-bit comparator lessequal                          : 1
+ 105-bit comparator lessequal                          : 1
+ 106-bit comparator lessequal                          : 1
+ 107-bit comparator lessequal                          : 1
+ 108-bit comparator lessequal                          : 1
+ 109-bit comparator lessequal                          : 1
+ 110-bit comparator lessequal                          : 1
+ 111-bit comparator lessequal                          : 1
+ 112-bit comparator lessequal                          : 1
+ 113-bit comparator lessequal                          : 1
+ 114-bit comparator lessequal                          : 1
+ 115-bit comparator lessequal                          : 1
+ 116-bit comparator lessequal                          : 1
+ 117-bit comparator lessequal                          : 1
+ 118-bit comparator lessequal                          : 1
+ 119-bit comparator lessequal                          : 1
+ 120-bit comparator lessequal                          : 1
+ 121-bit comparator lessequal                          : 1
+ 122-bit comparator lessequal                          : 1
+ 123-bit comparator lessequal                          : 1
+ 124-bit comparator lessequal                          : 1
+ 125-bit comparator lessequal                          : 1
+ 126-bit comparator lessequal                          : 1
+ 127-bit comparator lessequal                          : 1
+ 128-bit comparator lessequal                          : 1
+ 64-bit comparator greater                             : 2
+ 64-bit comparator lessequal                           : 3
+ 65-bit comparator lessequal                           : 3
+ 66-bit comparator lessequal                           : 1
+ 67-bit comparator lessequal                           : 1
+ 68-bit comparator lessequal                           : 1
+ 69-bit comparator lessequal                           : 1
+ 70-bit comparator lessequal                           : 1
+ 71-bit comparator lessequal                           : 1
+ 72-bit comparator lessequal                           : 1
+ 73-bit comparator lessequal                           : 1
+ 74-bit comparator lessequal                           : 1
+ 75-bit comparator lessequal                           : 1
+ 76-bit comparator lessequal                           : 1
+ 77-bit comparator lessequal                           : 1
+ 78-bit comparator lessequal                           : 1
+ 79-bit comparator lessequal                           : 1
+ 80-bit comparator lessequal                           : 1
+ 81-bit comparator lessequal                           : 1
+ 82-bit comparator lessequal                           : 1
+ 83-bit comparator lessequal                           : 1
+ 84-bit comparator lessequal                           : 1
+ 85-bit comparator lessequal                           : 1
+ 86-bit comparator lessequal                           : 1
+ 87-bit comparator lessequal                           : 1
+ 88-bit comparator lessequal                           : 1
+ 89-bit comparator lessequal                           : 1
+ 90-bit comparator lessequal                           : 1
+ 91-bit comparator lessequal                           : 1
+ 92-bit comparator lessequal                           : 1
+ 93-bit comparator lessequal                           : 1
+ 94-bit comparator lessequal                           : 1
+ 95-bit comparator lessequal                           : 1
+ 96-bit comparator lessequal                           : 1
+ 97-bit comparator lessequal                           : 1
+ 98-bit comparator lessequal                           : 1
+ 99-bit comparator lessequal                           : 1
+# Multiplexers                                         : 4038
+ 1-bit 2-to-1 multiplexer                              : 4035
+ 64-bit 2-to-1 multiplexer                             : 3
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1290 - Hierarchical block <a[63]_b[63]_mod_2> is unconnected in block <Circuit7>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <first_add> is unconnected in block <Circuit7>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <first_comp> is unconnected in block <Circuit7>.
+   It will be removed from the design.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 2
+ 64x64-bit multiplier                                  : 2
+# Adders/Subtractors                                   : 67
+ 1-bit adder carry in                                  : 2
+ 64-bit adder carry in                                 : 65
+# Registers                                            : 64
+ Flip-Flops                                            : 64
+# Comparators                                          : 71
+ 100-bit comparator lessequal                          : 1
+ 101-bit comparator lessequal                          : 1
+ 102-bit comparator lessequal                          : 1
+ 103-bit comparator lessequal                          : 1
+ 104-bit comparator lessequal                          : 1
+ 105-bit comparator lessequal                          : 1
+ 106-bit comparator lessequal                          : 1
+ 107-bit comparator lessequal                          : 1
+ 108-bit comparator lessequal                          : 1
+ 109-bit comparator lessequal                          : 1
+ 110-bit comparator lessequal                          : 1
+ 111-bit comparator lessequal                          : 1
+ 112-bit comparator lessequal                          : 1
+ 113-bit comparator lessequal                          : 1
+ 114-bit comparator lessequal                          : 1
+ 115-bit comparator lessequal                          : 1
+ 116-bit comparator lessequal                          : 1
+ 117-bit comparator lessequal                          : 1
+ 118-bit comparator lessequal                          : 1
+ 119-bit comparator lessequal                          : 1
+ 120-bit comparator lessequal                          : 1
+ 121-bit comparator lessequal                          : 1
+ 122-bit comparator lessequal                          : 1
+ 123-bit comparator lessequal                          : 1
+ 124-bit comparator lessequal                          : 1
+ 125-bit comparator lessequal                          : 1
+ 126-bit comparator lessequal                          : 1
+ 127-bit comparator lessequal                          : 1
+ 128-bit comparator lessequal                          : 1
+ 64-bit comparator greater                             : 2
+ 64-bit comparator lessequal                           : 3
+ 65-bit comparator lessequal                           : 3
+ 66-bit comparator lessequal                           : 1
+ 67-bit comparator lessequal                           : 1
+ 68-bit comparator lessequal                           : 1
+ 69-bit comparator lessequal                           : 1
+ 70-bit comparator lessequal                           : 1
+ 71-bit comparator lessequal                           : 1
+ 72-bit comparator lessequal                           : 1
+ 73-bit comparator lessequal                           : 1
+ 74-bit comparator lessequal                           : 1
+ 75-bit comparator lessequal                           : 1
+ 76-bit comparator lessequal                           : 1
+ 77-bit comparator lessequal                           : 1
+ 78-bit comparator lessequal                           : 1
+ 79-bit comparator lessequal                           : 1
+ 80-bit comparator lessequal                           : 1
+ 81-bit comparator lessequal                           : 1
+ 82-bit comparator lessequal                           : 1
+ 83-bit comparator lessequal                           : 1
+ 84-bit comparator lessequal                           : 1
+ 85-bit comparator lessequal                           : 1
+ 86-bit comparator lessequal                           : 1
+ 87-bit comparator lessequal                           : 1
+ 88-bit comparator lessequal                           : 1
+ 89-bit comparator lessequal                           : 1
+ 90-bit comparator lessequal                           : 1
+ 91-bit comparator lessequal                           : 1
+ 92-bit comparator lessequal                           : 1
+ 93-bit comparator lessequal                           : 1
+ 94-bit comparator lessequal                           : 1
+ 95-bit comparator lessequal                           : 1
+ 96-bit comparator lessequal                           : 1
+ 97-bit comparator lessequal                           : 1
+ 98-bit comparator lessequal                           : 1
+ 99-bit comparator lessequal                           : 1
+# Multiplexers                                         : 4035
+ 1-bit 2-to-1 multiplexer                              : 4032
+ 64-bit 2-to-1 multiplexer                             : 3
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:2973 - All outputs of instance <a[63]_b[63]_mod_2> of block <mod_64u_64u> are unconnected in block <Circuit7>. Underlying logic will be removed.
+WARNING:Xst:2677 - Node <second_mul/Mmult_n0003_submult_0> of sequential type is unconnected in block <Circuit7>.
+WARNING:Xst:2677 - Node <second_mul/Mmult_n0003_submult_01> of sequential type is unconnected in block <Circuit7>.
+WARNING:Xst:2677 - Node <second_mul/Mmult_n0003_submult_02> of sequential type is unconnected in block <Circuit7>.
+WARNING:Xst:2677 - Node <second_mul/Mmult_n0003_submult_03> of sequential type is unconnected in block <Circuit7>.
+
+Optimizing unit <REG> ...
+
+Optimizing unit <Circuit7> ...
+
+Optimizing unit <mod_64u_64u> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block Circuit7, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 64
+ Flip-Flops                                            : 64
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : Circuit7.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 97
+#      GND                         : 1
+#      LUT2                        : 22
+#      LUT3                        : 1
+#      LUT5                        : 14
+#      MUXCY                       : 35
+#      VCC                         : 1
+#      XORCY                       : 23
+# FlipFlops/Latches                : 64
+#      FD                          : 64
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 192
+#      IBUF                        : 128
+#      OBUF                        : 64
+# DSPs                             : 4
+#      DSP48E1                     : 4
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 7a100tcsg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice LUTs:                   37  out of  63400     0%  
+    Number used as Logic:                37  out of  63400     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:     37
+   Number with an unused Flip Flop:      37  out of     37   100%  
+   Number with an unused LUT:             0  out of     37     0%  
+   Number of fully used LUT-FF pairs:     0  out of     37     0%  
+   Number of unique control sets:         1
+
+IO Utilization: 
+ Number of IOs:                         386
+ Number of bonded IOBs:                 193  out of    210    91%  
+    IOB Flip Flops/Latches:              64
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
+ Number of DSP48E1s:                      4  out of    240     1%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+Clk                                | BUFGP                  | 64    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: 10.307ns
+   Maximum output required time after clock: 0.640ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk'
+  Total number of paths / destination ports: 494449461 / 64
+-------------------------------------------------------------------------
+Offset:              10.307ns (Levels of Logic = 43)
+  Source:            b<1> (PAD)
+  Destination:       sixth_reg/RegData_63 (FF)
+  Destination Clock: Clk rising
+
+  Data Path: b<1> to sixth_reg/RegData_63
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   0.001   0.688  b_1_IBUF (b_1_IBUF)
+     LUT5:I0->O            1   0.097   0.000  PWR_1_o_b[63]_div_0/Mcompar_o_lut<0> (PWR_1_o_b[63]_div_0/Mcompar_o_lut<0>)
+     MUXCY:S->O            1   0.353   0.000  PWR_1_o_b[63]_div_0/Mcompar_o_cy<0> (PWR_1_o_b[63]_div_0/Mcompar_o_cy<0>)
+     MUXCY:CI->O           1   0.023   0.000  PWR_1_o_b[63]_div_0/Mcompar_o_cy<1> (PWR_1_o_b[63]_div_0/Mcompar_o_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  PWR_1_o_b[63]_div_0/Mcompar_o_cy<2> (PWR_1_o_b[63]_div_0/Mcompar_o_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  PWR_1_o_b[63]_div_0/Mcompar_o_cy<3> (PWR_1_o_b[63]_div_0/Mcompar_o_cy<3>)
+     MUXCY:CI->O           1   0.023   0.000  PWR_1_o_b[63]_div_0/Mcompar_o_cy<4> (PWR_1_o_b[63]_div_0/Mcompar_o_cy<4>)
+     MUXCY:CI->O           1   0.023   0.000  PWR_1_o_b[63]_div_0/Mcompar_o_cy<5> (PWR_1_o_b[63]_div_0/Mcompar_o_cy<5>)
+     MUXCY:CI->O           1   0.023   0.000  PWR_1_o_b[63]_div_0/Mcompar_o_cy<6> (PWR_1_o_b[63]_div_0/Mcompar_o_cy<6>)
+     MUXCY:CI->O           1   0.023   0.000  PWR_1_o_b[63]_div_0/Mcompar_o_cy<7> (PWR_1_o_b[63]_div_0/Mcompar_o_cy<7>)
+     MUXCY:CI->O           1   0.023   0.000  PWR_1_o_b[63]_div_0/Mcompar_o_cy<8> (PWR_1_o_b[63]_div_0/Mcompar_o_cy<8>)
+     MUXCY:CI->O           1   0.023   0.000  PWR_1_o_b[63]_div_0/Mcompar_o_cy<9> (PWR_1_o_b[63]_div_0/Mcompar_o_cy<9>)
+     MUXCY:CI->O           1   0.023   0.000  PWR_1_o_b[63]_div_0/Mcompar_o_cy<10> (PWR_1_o_b[63]_div_0/Mcompar_o_cy<10>)
+     MUXCY:CI->O           1   0.023   0.000  PWR_1_o_b[63]_div_0/Mcompar_o_cy<11> (PWR_1_o_b[63]_div_0/Mcompar_o_cy<11>)
+     MUXCY:CI->O          25   0.253   0.385  PWR_1_o_b[63]_div_0/Mcompar_o_cy<12> (PWR_1_o_b[63]_div_0_OUT<0>)
+     DSP48E1:B0->PCOUT47    1   2.838   0.000  first_mul/Mmult_n0003_submult_0 (first_mul/Mmult_n0003_submult_0_PCOUT_to_first_mul/Mmult_n0003_submult_01_PCIN_47)
+     DSP48E1:PCIN47->PCOUT47    1   1.255   0.000  first_mul/Mmult_n0003_submult_01 (first_mul/Mmult_n0003_submult_01_PCOUT_to_first_mul/Mmult_n0003_submult_02_PCIN_47)
+     DSP48E1:PCIN47->PCOUT47    1   1.255   0.000  first_mul/Mmult_n0003_submult_02 (first_mul/Mmult_n0003_submult_02_PCOUT_to_first_mul/Mmult_n0003_submult_03_PCIN_47)
+     DSP48E1:PCIN47->P7    1   1.107   0.511  first_mul/Mmult_n0003_submult_03 (first_mul/Mmult_n0003_submult_0_41)
+     LUT3:I0->O            1   0.097   0.000  first_mul/Mmult_n0003_Madd_lut<41> (first_mul/Mmult_n0003_Madd_lut<41>)
+     MUXCY:S->O            1   0.353   0.000  first_mul/Mmult_n0003_Madd_cy<41> (first_mul/Mmult_n0003_Madd_cy<41>)
+     MUXCY:CI->O           1   0.023   0.000  first_mul/Mmult_n0003_Madd_cy<42> (first_mul/Mmult_n0003_Madd_cy<42>)
+     MUXCY:CI->O           1   0.023   0.000  first_mul/Mmult_n0003_Madd_cy<43> (first_mul/Mmult_n0003_Madd_cy<43>)
+     MUXCY:CI->O           1   0.023   0.000  first_mul/Mmult_n0003_Madd_cy<44> (first_mul/Mmult_n0003_Madd_cy<44>)
+     MUXCY:CI->O           1   0.023   0.000  first_mul/Mmult_n0003_Madd_cy<45> (first_mul/Mmult_n0003_Madd_cy<45>)
+     MUXCY:CI->O           1   0.023   0.000  first_mul/Mmult_n0003_Madd_cy<46> (first_mul/Mmult_n0003_Madd_cy<46>)
+     MUXCY:CI->O           1   0.023   0.000  first_mul/Mmult_n0003_Madd_cy<47> (first_mul/Mmult_n0003_Madd_cy<47>)
+     MUXCY:CI->O           1   0.023   0.000  first_mul/Mmult_n0003_Madd_cy<48> (first_mul/Mmult_n0003_Madd_cy<48>)
+     MUXCY:CI->O           1   0.023   0.000  first_mul/Mmult_n0003_Madd_cy<49> (first_mul/Mmult_n0003_Madd_cy<49>)
+     MUXCY:CI->O           1   0.023   0.000  first_mul/Mmult_n0003_Madd_cy<50> (first_mul/Mmult_n0003_Madd_cy<50>)
+     MUXCY:CI->O           1   0.023   0.000  first_mul/Mmult_n0003_Madd_cy<51> (first_mul/Mmult_n0003_Madd_cy<51>)
+     MUXCY:CI->O           1   0.023   0.000  first_mul/Mmult_n0003_Madd_cy<52> (first_mul/Mmult_n0003_Madd_cy<52>)
+     MUXCY:CI->O           1   0.023   0.000  first_mul/Mmult_n0003_Madd_cy<53> (first_mul/Mmult_n0003_Madd_cy<53>)
+     MUXCY:CI->O           1   0.023   0.000  first_mul/Mmult_n0003_Madd_cy<54> (first_mul/Mmult_n0003_Madd_cy<54>)
+     MUXCY:CI->O           1   0.023   0.000  first_mul/Mmult_n0003_Madd_cy<55> (first_mul/Mmult_n0003_Madd_cy<55>)
+     MUXCY:CI->O           1   0.023   0.000  first_mul/Mmult_n0003_Madd_cy<56> (first_mul/Mmult_n0003_Madd_cy<56>)
+     MUXCY:CI->O           1   0.023   0.000  first_mul/Mmult_n0003_Madd_cy<57> (first_mul/Mmult_n0003_Madd_cy<57>)
+     MUXCY:CI->O           1   0.023   0.000  first_mul/Mmult_n0003_Madd_cy<58> (first_mul/Mmult_n0003_Madd_cy<58>)
+     MUXCY:CI->O           1   0.023   0.000  first_mul/Mmult_n0003_Madd_cy<59> (first_mul/Mmult_n0003_Madd_cy<59>)
+     MUXCY:CI->O           1   0.023   0.000  first_mul/Mmult_n0003_Madd_cy<60> (first_mul/Mmult_n0003_Madd_cy<60>)
+     MUXCY:CI->O           1   0.023   0.000  first_mul/Mmult_n0003_Madd_cy<61> (first_mul/Mmult_n0003_Madd_cy<61>)
+     MUXCY:CI->O           0   0.023   0.000  first_mul/Mmult_n0003_Madd_cy<62> (first_mul/Mmult_n0003_Madd_cy<62>)
+     XORCY:CI->O           1   0.370   0.000  first_mul/Mmult_n0003_Madd_xor<63> (e<63>)
+     FD:D                      0.008          sixth_reg/RegData_63
+    ----------------------------------------
+    Total                     10.307ns (8.723ns logic, 1.584ns route)
+                                       (84.6% logic, 15.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk'
+  Total number of paths / destination ports: 64 / 64
+-------------------------------------------------------------------------
+Offset:              0.640ns (Levels of Logic = 1)
+  Source:            sixth_reg/RegData_63 (FF)
+  Destination:       z<63> (PAD)
+  Source Clock:      Clk rising
+
+  Data Path: sixth_reg/RegData_63 to z<63>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               1   0.361   0.279  sixth_reg/RegData_63 (sixth_reg/RegData_63)
+     OBUF:I->O                 0.000          z_63_OBUF (z<63>)
+    ----------------------------------------
+    Total                      0.640ns (0.361ns logic, 0.279ns route)
+                                       (56.4% logic, 43.6% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 61.00 secs
+Total CPU time to Xst completion: 61.16 secs
+ 
+--> 
+
+Total memory usage is 565856 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   10 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
+
