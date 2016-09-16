@@ -135,11 +135,11 @@ wire [31:0] t1,t2,t3,t4,t5,t6,t7;
 		.q(r7)
 	);
 	
-	MUL #(16) first_mul(
+	DIV #(16) first_div(
 	
 		.a(r7),
-		.b(1/num),
-		.prod(avgwire)
+		.b(num),
+		.quot(avgwire)
 	);
 	
 	REG #(16) eigth_reg(

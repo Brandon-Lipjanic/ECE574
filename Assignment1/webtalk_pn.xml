@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pn" timeStamp="Fri Sep 16 15:38:26 2016">
+<application name="pn" timeStamp="Fri Sep 16 15:53:08 2016">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="F33D8736837B4A39901EB238C18A2A1F" type="project"/>
-<property name="ProjectIteration" value="0" type="project"/>
+<property name="ProjectIteration" value="1" type="project"/>
 <property name="ProjectFile" value="C:/Users/Brandon/Documents/School/ECE574/Assignment1/Assignment1.xise" type="project"/>
 <property name="ProjectCreationTimestamp" value="2016-09-11T14:58:29" type="project"/>
 </section>
@@ -26,6 +26,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PROP_UseSmartGuide" value="false" type="design"/>
 <property name="PROP_intProjectCreationTimestamp" value="2016-09-11T14:58:29" type="design"/>
 <property name="PROP_intWbtProjectID" value="F33D8736837B4A39901EB238C18A2A1F" type="design"/>
+<property name="PROP_intWbtProjectIteration" value="1" type="process"/>
 <property name="PROP_intWorkingDirLocWRTProjDir" value="Same" type="design"/>
 <property name="PROP_intWorkingDirUsed" value="No" type="design"/>
 <property name="PROPEXT_mapTimingMode_virtex5" value="Non Timing Driven" type="process"/>

@@ -29,24 +29,24 @@ wire gEQz;
 
 
 
-	MUL #(64) first_mul(
+	DIV #(64) first_div(
 		
 		.a(a),
-		.b(1/b),
+		.b(b),
 		.prod(e)
 	);
 	
-	MUL #(64) second_mul(
+	DIV #(64) second_div(
 		
 		.a(c),
-		.b(1/d),
+		.b(d),
 		.prod(f)
 	);	
 
-	ADD #(64) first_add(
-		.a(0),
-		.b(a%b),
-		.sum(g)
+	MOD #(64) first_mod(
+		.a(a),
+		.b(b),
+		.rem(g)
 	);
 	
 	COMP #(64) first_comp(

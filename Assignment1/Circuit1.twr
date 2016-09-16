@@ -1,0 +1,233 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 3
+-n 3 -fastpaths -xml Circuit1.twx Circuit1.ncd -o Circuit1.twr Circuit1.pcf
+
+Design file:              Circuit1.ncd
+Physical constraint file: Circuit1.pcf
+Device,package,speed:     xc7a100t,csg324,C,-3 (PRODUCTION 1.10 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock Clk
+------------+------------+------------+------------+------------+------------------+--------+
+            |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
+Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
+------------+------------+------------+------------+------------+------------------+--------+
+a<0>        |    1.442(R)|      SLOW  |    1.095(R)|      SLOW  |Clk_BUFGP         |   0.000|
+a<1>        |    1.139(R)|      FAST  |    1.371(R)|      SLOW  |Clk_BUFGP         |   0.000|
+a<2>        |    1.329(R)|      SLOW  |    1.188(R)|      SLOW  |Clk_BUFGP         |   0.000|
+a<3>        |    1.246(R)|      SLOW  |    1.266(R)|      SLOW  |Clk_BUFGP         |   0.000|
+a<4>        |    1.092(R)|      FAST  |    1.469(R)|      SLOW  |Clk_BUFGP         |   0.000|
+a<5>        |    1.162(R)|      FAST  |    1.452(R)|      SLOW  |Clk_BUFGP         |   0.000|
+a<6>        |    1.235(R)|      SLOW  |    1.279(R)|      SLOW  |Clk_BUFGP         |   0.000|
+a<7>        |    1.413(R)|      SLOW  |    1.115(R)|      SLOW  |Clk_BUFGP         |   0.000|
+b<0>        |    1.761(R)|      SLOW  |    0.731(R)|      SLOW  |Clk_BUFGP         |   0.000|
+b<1>        |    1.606(R)|      SLOW  |    0.865(R)|      SLOW  |Clk_BUFGP         |   0.000|
+b<2>        |    1.544(R)|      SLOW  |    0.916(R)|      SLOW  |Clk_BUFGP         |   0.000|
+b<3>        |    1.642(R)|      SLOW  |    0.835(R)|      SLOW  |Clk_BUFGP         |   0.000|
+b<4>        |    1.606(R)|      SLOW  |    0.867(R)|      SLOW  |Clk_BUFGP         |   0.000|
+b<5>        |    1.498(R)|      SLOW  |    0.954(R)|      SLOW  |Clk_BUFGP         |   0.000|
+b<6>        |    1.360(R)|      SLOW  |    1.075(R)|      SLOW  |Clk_BUFGP         |   0.000|
+b<7>        |    1.272(R)|      SLOW  |    1.145(R)|      SLOW  |Clk_BUFGP         |   0.000|
+c<0>        |    1.222(R)|      SLOW  |    1.338(R)|      SLOW  |Clk_BUFGP         |   0.000|
+c<1>        |    1.152(R)|      FAST  |    1.418(R)|      SLOW  |Clk_BUFGP         |   0.000|
+c<2>        |    1.287(R)|      SLOW  |    1.282(R)|      SLOW  |Clk_BUFGP         |   0.000|
+c<3>        |    1.186(R)|      SLOW  |    1.371(R)|      SLOW  |Clk_BUFGP         |   0.000|
+c<4>        |    1.183(R)|      SLOW  |    1.375(R)|      SLOW  |Clk_BUFGP         |   0.000|
+c<5>        |    1.335(R)|      SLOW  |    1.241(R)|      SLOW  |Clk_BUFGP         |   0.000|
+c<6>        |    1.350(R)|      SLOW  |    1.225(R)|      SLOW  |Clk_BUFGP         |   0.000|
+c<7>        |    1.259(R)|      SLOW  |    1.304(R)|      SLOW  |Clk_BUFGP         |   0.000|
+------------+------------+------------+------------+------------+------------------+--------+
+
+Clock Clk to Pad
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+x<0>        |         8.036(R)|      SLOW  |         3.427(R)|      FAST  |Clk_BUFGP         |   0.000|
+x<1>        |         8.065(R)|      SLOW  |         3.445(R)|      FAST  |Clk_BUFGP         |   0.000|
+x<2>        |         8.188(R)|      SLOW  |         3.517(R)|      FAST  |Clk_BUFGP         |   0.000|
+x<3>        |         8.183(R)|      SLOW  |         3.519(R)|      FAST  |Clk_BUFGP         |   0.000|
+x<4>        |         8.189(R)|      SLOW  |         3.505(R)|      FAST  |Clk_BUFGP         |   0.000|
+x<5>        |         8.239(R)|      SLOW  |         3.555(R)|      FAST  |Clk_BUFGP         |   0.000|
+x<6>        |         8.331(R)|      SLOW  |         3.594(R)|      FAST  |Clk_BUFGP         |   0.000|
+x<7>        |         8.365(R)|      SLOW  |         3.619(R)|      FAST  |Clk_BUFGP         |   0.000|
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+a<0>           |z<0>           |    8.827|
+a<0>           |z<1>           |    8.686|
+a<0>           |z<2>           |    8.365|
+a<0>           |z<3>           |    8.798|
+a<0>           |z<4>           |    8.233|
+a<0>           |z<5>           |    8.671|
+a<0>           |z<6>           |    8.429|
+a<0>           |z<7>           |    8.418|
+a<1>           |z<0>           |    8.511|
+a<1>           |z<1>           |    8.370|
+a<1>           |z<2>           |    8.049|
+a<1>           |z<3>           |    8.482|
+a<1>           |z<4>           |    7.917|
+a<1>           |z<5>           |    8.355|
+a<1>           |z<6>           |    8.113|
+a<1>           |z<7>           |    8.102|
+a<2>           |z<0>           |    8.714|
+a<2>           |z<1>           |    8.573|
+a<2>           |z<2>           |    8.252|
+a<2>           |z<3>           |    8.685|
+a<2>           |z<4>           |    8.120|
+a<2>           |z<5>           |    8.558|
+a<2>           |z<6>           |    8.316|
+a<2>           |z<7>           |    8.305|
+a<3>           |z<0>           |    8.631|
+a<3>           |z<1>           |    8.490|
+a<3>           |z<2>           |    8.169|
+a<3>           |z<3>           |    8.602|
+a<3>           |z<4>           |    8.037|
+a<3>           |z<5>           |    8.475|
+a<3>           |z<6>           |    8.233|
+a<3>           |z<7>           |    8.222|
+a<4>           |z<0>           |    8.396|
+a<4>           |z<1>           |    8.255|
+a<4>           |z<2>           |    7.934|
+a<4>           |z<3>           |    8.367|
+a<4>           |z<4>           |    7.802|
+a<4>           |z<5>           |    8.240|
+a<4>           |z<6>           |    7.998|
+a<4>           |z<7>           |    7.987|
+a<5>           |z<0>           |    8.402|
+a<5>           |z<1>           |    8.261|
+a<5>           |z<2>           |    7.940|
+a<5>           |z<3>           |    8.373|
+a<5>           |z<4>           |    7.808|
+a<5>           |z<5>           |    8.246|
+a<5>           |z<6>           |    8.004|
+a<5>           |z<7>           |    7.993|
+a<6>           |z<0>           |    8.640|
+a<6>           |z<1>           |    8.499|
+a<6>           |z<2>           |    8.178|
+a<6>           |z<3>           |    8.611|
+a<6>           |z<4>           |    8.046|
+a<6>           |z<5>           |    8.484|
+a<6>           |z<6>           |    8.242|
+a<6>           |z<7>           |    8.231|
+a<7>           |z<0>           |    8.798|
+a<7>           |z<1>           |    8.657|
+a<7>           |z<2>           |    8.336|
+a<7>           |z<3>           |    8.769|
+a<7>           |z<4>           |    8.204|
+a<7>           |z<5>           |    8.642|
+a<7>           |z<6>           |    8.400|
+a<7>           |z<7>           |    8.389|
+b<0>           |z<0>           |    9.253|
+b<0>           |z<1>           |    9.112|
+b<0>           |z<2>           |    8.791|
+b<0>           |z<3>           |    9.224|
+b<0>           |z<4>           |    8.659|
+b<0>           |z<5>           |    9.097|
+b<0>           |z<6>           |    8.855|
+b<0>           |z<7>           |    8.844|
+b<1>           |z<0>           |    9.098|
+b<1>           |z<1>           |    8.957|
+b<1>           |z<2>           |    8.636|
+b<1>           |z<3>           |    9.069|
+b<1>           |z<4>           |    8.504|
+b<1>           |z<5>           |    8.942|
+b<1>           |z<6>           |    8.700|
+b<1>           |z<7>           |    8.689|
+b<2>           |z<0>           |    9.036|
+b<2>           |z<1>           |    8.895|
+b<2>           |z<2>           |    8.574|
+b<2>           |z<3>           |    9.007|
+b<2>           |z<4>           |    8.442|
+b<2>           |z<5>           |    8.880|
+b<2>           |z<6>           |    8.638|
+b<2>           |z<7>           |    8.627|
+b<3>           |z<0>           |    9.134|
+b<3>           |z<1>           |    8.993|
+b<3>           |z<2>           |    8.672|
+b<3>           |z<3>           |    9.105|
+b<3>           |z<4>           |    8.540|
+b<3>           |z<5>           |    8.978|
+b<3>           |z<6>           |    8.736|
+b<3>           |z<7>           |    8.725|
+b<4>           |z<0>           |    9.098|
+b<4>           |z<1>           |    8.957|
+b<4>           |z<2>           |    8.636|
+b<4>           |z<3>           |    9.069|
+b<4>           |z<4>           |    8.504|
+b<4>           |z<5>           |    8.942|
+b<4>           |z<6>           |    8.700|
+b<4>           |z<7>           |    8.689|
+b<5>           |z<0>           |    8.990|
+b<5>           |z<1>           |    8.849|
+b<5>           |z<2>           |    8.528|
+b<5>           |z<3>           |    8.961|
+b<5>           |z<4>           |    8.396|
+b<5>           |z<5>           |    8.834|
+b<5>           |z<6>           |    8.592|
+b<5>           |z<7>           |    8.581|
+b<6>           |z<0>           |    8.852|
+b<6>           |z<1>           |    8.711|
+b<6>           |z<2>           |    8.390|
+b<6>           |z<3>           |    8.823|
+b<6>           |z<4>           |    8.258|
+b<6>           |z<5>           |    8.696|
+b<6>           |z<6>           |    8.454|
+b<6>           |z<7>           |    8.443|
+b<7>           |z<0>           |    8.764|
+b<7>           |z<1>           |    8.623|
+b<7>           |z<2>           |    8.302|
+b<7>           |z<3>           |    8.735|
+b<7>           |z<4>           |    8.170|
+b<7>           |z<5>           |    8.608|
+b<7>           |z<6>           |    8.366|
+b<7>           |z<7>           |    8.355|
+c<0>           |z<0>           |    6.428|
+c<0>           |z<1>           |    6.743|
+c<0>           |z<2>           |    6.475|
+c<0>           |z<3>           |    6.805|
+c<0>           |z<4>           |    6.563|
+c<0>           |z<5>           |    6.560|
+c<0>           |z<6>           |    6.282|
+c<0>           |z<7>           |    6.591|
+---------------+---------------+---------+
+
+
+Analysis completed Fri Sep 16 15:54:11 2016 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 670 MB
+
+
+

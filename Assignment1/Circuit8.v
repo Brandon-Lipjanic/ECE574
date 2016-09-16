@@ -28,25 +28,23 @@ output [63:0] z;
 wire [63:0] e,f,g,zwire;
 wire gEQz;
 
-	SUB #(64) first_sub(
+	DEC #(64) first_dec(
 	
 		.a(a),
-		.b(1),
-		.diff(e)
+		.d(e)
 	);
 
-	ADD #(64) first_adder(
+	ADD #(64) first_inc(
 	
-		.a(c),
-		.b(1),
-		.sum(f)
+		.a(a),
+		.d(f)
 	);
 	
-	ADD #(8) second_adder(
+	MOD #(8) first_mod(
 	
-		.a(0),
-		.b(a%c),
-		.sum(g)
+		.a(a),
+		.b(c),
+		.rem(g)
 	);
 	
 	COMP #(64) first_comp(
