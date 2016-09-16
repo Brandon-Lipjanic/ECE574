@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    14:59:07 09/11/2016 
+// Create Date:    13:40:54 09/16/2016 
 // Design Name: 
-// Module Name:    REG 
+// Module Name:    Circuit6 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,26 +18,8 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module REG(d,Clk,Rst,q);
+module Circuit6(
+    );
 
-	parameter DATAWIDTH = 8;
-	input [DATAWIDTH-1:0] d;
-	input Clk, Rst;
-	output [DATAWIDTH-1:0] q;
-
-	reg [DATAWIDTH-1:0] RegData;
-	initial begin
-
-		RegData = 0;
-		
-	end
-	
-	assign q = RegData;
-	
-	always@(posedge Clk) begin
-	
-		RegData <= d;
-	
-	end
 
 endmodule
