@@ -1,0 +1,4 @@
+verilog work "REG.v"
+verilog work "MUL.v"
+verilog work "ADD.v"
+verilog work "Circuit6.v"

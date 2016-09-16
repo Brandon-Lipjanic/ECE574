@@ -1,0 +1,2 @@
+xst -intstyle ise -ifn "C:/Users/Brandon/Documents/School/ECE574/Assignment1/Circuit8.xst" -ofn "C:/Users/Brandon/Documents/School/ECE574/Assignment1/Circuit8.syr" 
+xst -intstyle ise -ifn "C:/Users/Brandon/Documents/School/ECE574/Assignment1/Circuit8.xst" -ofn "C:/Users/Brandon/Documents/School/ECE574/Assignment1/Circuit8.syr" 

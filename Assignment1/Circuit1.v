@@ -23,56 +23,62 @@ module Circuit1(a,b,c,z,x,Clk,Rst);
 	input Clk,Rst;
 	input [7:0] a,b,c;
 	
-	output reg [7:0] z;
-	output reg [15:0] x;
+	output [7:0] z;
+	output [15:0] x;
 	
 	wire [7:0] d,e;
 	wire [15:0] f,g, xwire;
 	
-	int datawidth = 2;
 	
-	ADD first_adder(
-		.DATAWIDTH(datawidth),
+	
+	
+	ADD #(8) first_adder(
+	
 		.a(a),
 		.b(b),
 		.sum(d)
 	);
 	
-	ADD second_adder(
-		.DATAWIDTH(datawidth),
+	ADD #(8) second_adder(
+		
 		.a(a),
 		.b(c),
-		.sum(e),
+		.sum(e)
 	);
 
-	COMP first_comp(
+	COMP #(8) first_comp(
+		
 		.a(a),
 		.b(b),
 		.gt(g),
 		.lt(),
-		.eq(),
+		.eq()
 	);
 	
-	MUX2x1 first_mux(
+	MUX2x1 #(8) first_mux(
+		
 		.a(g),
 		.b(d),
 		.sel(e),
 		.d(z)
 	);
 	
-	MUL first_mul(
+	MUL #(8) first_mul(
+		
 		.a(a),
 		.b(c),
-		.f(prod)
+		.prod(f)
 	);
 	
-	SUB first_sub(
+	SUB #(8) first_sub(
+
 		.a(f),
 		.b(d),
-		.d(xwire)
+		.diff(xwire)
 	);
 	
-	REG first_reg(
+	REG #(8) first_reg(
+	
 		.Clk(Clk),
 		.Rst(Rst),
 		.d(xwire),
