@@ -5,43 +5,34 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="189" delta="new" >"C:\Users\Brandon\Documents\School\ECE574\Assignment1\Circuit7.v" Line 47: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">a</arg>&gt;. Formal port size is <arg fmt="%d" index="2">64</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
+<msg type="warning" file="HDLCompiler" num="189" delta="new" >"C:\Users\Brandon\Documents\School\ECE574\Assignment1\Circuit8.v" Line 34: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">b</arg>&gt;. Formal port size is <arg fmt="%d" index="2">64</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Brandon\Documents\School\ECE574\Assignment1\Circuit7.v</arg>&quot; line <arg fmt="%s" index="2">52</arg>: Output port &lt;<arg fmt="%s" index="3">gt</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">first_comp</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="warning" file="HDLCompiler" num="189" delta="new" >"C:\Users\Brandon\Documents\School\ECE574\Assignment1\Circuit8.v" Line 41: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">b</arg>&gt;. Formal port size is <arg fmt="%d" index="2">64</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Brandon\Documents\School\ECE574\Assignment1\Circuit7.v</arg>&quot; line <arg fmt="%s" index="2">52</arg>: Output port &lt;<arg fmt="%s" index="3">lt</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">first_comp</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="warning" file="HDLCompiler" num="189" delta="new" >"C:\Users\Brandon\Documents\School\ECE574\Assignment1\Circuit8.v" Line 47: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">a</arg>&gt;. Formal port size is <arg fmt="%d" index="2">8</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="new" >"C:\Users\Brandon\Documents\School\ECE574\Assignment1\Circuit8.v" Line 48: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">b</arg>&gt;. Formal port size is <arg fmt="%d" index="2">8</arg>-bit while actual signal size is <arg fmt="%d" index="1">64</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="new" >"C:\Users\Brandon\Documents\School\ECE574\Assignment1\Circuit8.v" Line 49: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">sum</arg>&gt;. Formal port size is <arg fmt="%d" index="2">8</arg>-bit while actual signal size is <arg fmt="%d" index="1">64</arg>-bit.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">b</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Brandon\Documents\School\ECE574\Assignment1\Circuit8.v</arg>&quot; line <arg fmt="%s" index="2">52</arg>: Output port &lt;<arg fmt="%s" index="3">lt</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">first_comp</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Brandon\Documents\School\ECE574\Assignment1\Circuit8.v</arg>&quot; line <arg fmt="%s" index="2">52</arg>: Output port &lt;<arg fmt="%s" index="3">eq</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">first_comp</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">Rst</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="1290" delta="new" >Hierarchical block &lt;<arg fmt="%s" index="1">a[63]_b[63]_mod_2</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">Circuit7</arg>&gt;.
-It will be removed from the design.
-</msg>
-
-<msg type="warning" file="Xst" num="1290" delta="new" >Hierarchical block &lt;<arg fmt="%s" index="1">first_add</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">Circuit7</arg>&gt;.
-It will be removed from the design.
-</msg>
-
-<msg type="warning" file="Xst" num="1290" delta="new" >Hierarchical block &lt;<arg fmt="%s" index="1">first_comp</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">Circuit7</arg>&gt;.
-It will be removed from the design.
-</msg>
-
-<msg type="warning" file="Xst" num="2973" delta="new" >All outputs of instance &lt;<arg fmt="%s" index="1">a[63]_b[63]_mod_2</arg>&gt; of block &lt;<arg fmt="%s" index="2">mod_64u_64u</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="3">Circuit7</arg>&gt;. Underlying logic will be removed.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">second_mul/Mmult_n0003_submult_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Circuit7</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">second_mul/Mmult_n0003_submult_01</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Circuit7</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">second_mul/Mmult_n0003_submult_02</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Circuit7</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">second_mul/Mmult_n0003_submult_03</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Circuit7</arg>&gt;.
+<msg type="warning" file="Xst" num="1336" delta="new" > (*) More than 100% of Device resources are used
 </msg>
 
 </messages>
