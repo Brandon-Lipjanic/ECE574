@@ -33,14 +33,14 @@ wire gEQz;
 		
 		.a(a),
 		.b(b),
-		.prod(e)
+		.quot(e)
 	);
 	
 	DIV #(64) second_div(
 		
 		.a(c),
 		.b(d),
-		.prod(f)
+		.quot(f)
 	);	
 
 	MOD #(64) first_mod(
