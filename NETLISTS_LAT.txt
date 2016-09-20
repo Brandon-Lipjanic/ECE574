@@ -1,0 +1,10 @@
+NetlistName : EstimatedCriticalPath ActualCriticalPath
+
+Circuit 1 : Estimated 8.234ns
+Circuit 2 : Estimated 7.168ns
+Circuit 3 : Estimated 10.187ns
+Circuit 4 : Estimated 19.471ns
+Circuit 5 : Estimated 13.008ns
+Circuit 6 : Estimated 35.233ns
+Circuit 7 : Estimated 294.116ns
+Circuit 8 : Estimated 27.023ns
