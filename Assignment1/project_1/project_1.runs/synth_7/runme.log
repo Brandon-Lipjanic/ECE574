@@ -1,0 +1,4 @@
+
+*** Running vivado
+    with args -log SHR.vds -m64 -mode batch -messageDb vivado.pb -notrace -source SHR.tcl
+

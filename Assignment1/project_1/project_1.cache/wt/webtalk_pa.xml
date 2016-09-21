@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<document>
+<!--The data in this file is primarily intended for consumption by Xilinx tools.
+The structure and the elements are likely to change over the next few releases.
+This means code written to parse this file will need to be revisited each subsequent release.-->
+<application name="pa" timeStamp="Sun Sep 18 16:18:02 2016">
+<section name="Project Information" visible="false">
+<property name="ProjectID" value="44a9e724a3eb45edabbc6d306b0e6445" type="ProjectID"/>
+<property name="ProjectIteration" value="4" type="ProjectIteration"/>
+</section>
+<section name="PlanAhead Usage" visible="true">
+<item name="Project Data">
+<property name="SrcSetCount" value="1" type="SrcSetCount"/>
+<property name="ConstraintSetCount" value="1" type="ConstraintSetCount"/>
+<property name="DesignMode" value="RTL" type="DesignMode"/>
+<property name="SynthesisStrategy" value="Vivado Synthesis Defaults" type="SynthesisStrategy"/>
+<property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
+</item>
+<item name="Java Command Handlers">
+<property name="AddSources" value="3" type="JavaHandler"/>
+<property name="EditConstraintSets" value="1" type="JavaHandler"/>
+<property name="EditProperties" value="3" type="JavaHandler"/>
+<property name="EditSimulationSets" value="1" type="JavaHandler"/>
+<property name="OpenExistingReport" value="2" type="JavaHandler"/>
+<property name="OpenProject" value="1" type="JavaHandler"/>
+<property name="ProjectSettingsCmdHandler" value="4" type="JavaHandler"/>
+<property name="ReportTimingSummary" value="1" type="JavaHandler"/>
+<property name="RunDesignAhead" value="5" type="JavaHandler"/>
+<property name="RunImplementation" value="1" type="JavaHandler"/>
+<property name="RunSynthesis" value="3" type="JavaHandler"/>
+<property name="SetTopNode" value="11" type="JavaHandler"/>
+<property name="ShowView" value="3" type="JavaHandler"/>
+<property name="ToggleViewNavigator" value="1" type="JavaHandler"/>
+<property name="ViewLayoutCmd" value="1" type="JavaHandler"/>
+<property name="ViewTaskImplementation" value="1" type="JavaHandler"/>
+</item>
+<item name="Gui Resources Info">
+<property name="PAResourceEtoH.ExpRunMenu_OPEN_RUN, Open Run" value="5" type="GuiResourceData"/>
+<property name="PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, synth_2 ; constrs_1 ; synth_design Complete! ;  ;  ;  ;  ;  ;  ; 1 ; 0 ; 0 ; 0 ; 0 ; Fri Sep 16 17:23:50 MST 2016 ; 00:00:32 ; Vivado Synthesis Defaults* (Vivado Synthesis 2016" value="2" type="GuiResourceData"/>
+<property name="PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, synth_3 ; constrs_1 ; synth_design Complete! ;  ;  ;  ;  ;  ;  ; 82 ; 0 ; 0 ; 0 ; 0 ; Fri Sep 16 17:22:45 MST 2016 ; 00:00:59 ; Vivado Synthesis Defaults* (Vivado Synthesis 2016" value="2" type="GuiResourceData"/>
+<property name="PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, synth_4 ; constrs_1 ; synth_design Complete! ;  ;  ;  ;  ;  ;  ; 304 ; 0 ; 0 ; 0 ; 0 ; Fri Sep 16 17:22:45 MST 2016 ; 00:01:00 ; Vivado Synthesis Defaults* (Vivado Synthesis 2016" value="2" type="GuiResourceData"/>
+<property name="PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, synth_5 ; constrs_1 ; synth_design Complete! ;  ;  ;  ;  ;  ;  ; 1122 ; 0 ; 0 ; 0 ; 0 ; Fri Sep 16 17:15:53 MST 2016 ; 00:06:27 ; Vivado Synthesis Defaults* (Vivado Synthesis 2016" value="2" type="GuiResourceData"/>
+<property name="PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, synth_6 ; constrs_1 ; synth_design Complete! ;  ;  ;  ;  ;  ;  ; 4312 ; 0 ; 0 ; 0 ; 0 ; Fri Sep 16 17:15:56 MST 2016 ; 00:06:23 ; Vivado Synthesis Defaults* (Vivado Synthesis 2016" value="2" type="GuiResourceData"/>
+<property name="PAResourceItoN.NavigableTimingReportTab_TIMING_REPORT_NAVIGATION_TREE, [Root, Unconstrained Paths, NONE to NONE, Setup], 10, false" value="5" type="GuiResourceData"/>
+<property name="PAResourceItoN.NavigableTimingReportTab_TIMING_REPORT_NAVIGATION_TREE, [Root, Unconstrained Paths, NONE to NONE], 9" value="5" type="GuiResourceData"/>
+<property name="PAResourceItoN.NavigableTimingReportTab_TIMING_REPORT_NAVIGATION_TREE, [Root, Unconstrained Paths], 8" value="5" type="GuiResourceData"/>
+<property name="PAResourceTtoZ.TimingGettingStartedPanel_REPORT_TIMING_SUMMARY, Report Timing Summary" value="6" type="GuiResourceData"/>
+<property name="RDIResource.BaseDialog_OK, OK" value="5" type="GuiResourceData"/>
+</item>
+<item name="Other">
+<property name="GuiMode" value="8" type="GuiMode"/>
+<property name="BatchMode" value="0" type="BatchMode"/>
+<property name="TclMode" value="4" type="TclMode"/>
+</item>
+</section>
+</application>
+</document>

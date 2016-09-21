@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Fri Sep 16 17:14:18 2016
+# Process ID: 9436
+# Current directory: C:/Users/abigailfrancis/Documents/474/Assignment1/Assignment1/project_1/project_1.runs/impl_4
+# Command line: vivado.exe -log INC.vdi -applog -messageDb vivado.pb -mode batch -source INC.tcl -notrace
+# Log file: C:/Users/abigailfrancis/Documents/474/Assignment1/Assignment1/project_1/project_1.runs/impl_4/INC.vdi
+# Journal file: C:/Users/abigailfrancis/Documents/474/Assignment1/Assignment1/project_1/project_1.runs/impl_4\vivado.jou
+#-----------------------------------------------------------
+source INC.tcl -notrace
