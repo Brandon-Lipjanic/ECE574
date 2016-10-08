@@ -6,10 +6,11 @@
 #include "FileIO.h"
 using namespace std;
 
-vector<string> readFile(string inp) {
+std::vector<string> readFile(string inp) {
 
 	string line;
-	ifstream inFile(inp);
+	ifstream inFile;
+	inFile.open(inp);
 	vector<string> v;
 	
 	if (inFile.is_open()){
@@ -25,15 +26,15 @@ vector<string> readFile(string inp) {
 
 }
 
-void writeFile(string outp, vector<string> v) {
+void writeFile(string outp, std::vector<string> v) {
 
 	int i;
 	string line;
 	ofstream outFile(outp);
-
+	
 	if (outFile.is_open())
 	{
-		for (i = 0; i < v.size; ++i) {
+		for (i = 0; i < v.size(); ++i) {
 			outFile << v[i];
 			outFile << "\n";
 		}

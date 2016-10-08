@@ -1,6 +1,8 @@
 #include <stdio.h>
+#include <vector>
 #include <iostream>
+using namespace std;
 
-vector<string> readFile(string inp);
+std::vector<string> readFile(string inp);
 
-void writeFile(string outp, vector<string> v);
+void writeFile(string outp, std::vector<string> v);
