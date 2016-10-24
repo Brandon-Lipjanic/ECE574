@@ -27,7 +27,7 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 		
 		if (tempStr.find('=') != string::npos) {
 
-			if (tempStr.find('+') != string::npos) {
+			if (tempStr.find('+') != string::npos && tempStr.find("+ 1") == string::npos) {
 				//Start of Module
 				newStr = string("ADD") + string(" adder") + string(to_string(i)) + string("( .a(");
 				//Find first variable name
@@ -63,7 +63,7 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 				newStr = newStr + "));";
 			}
 
-			else if (tempStr.find('-') != string::npos) {
+			else if (tempStr.find('-') != string::npos && tempStr.find("- 1") == string::npos) {
 				//Subtract
 				//Start of Module
 				newStr = string("SUB") + string(" subtractor") + string(to_string(i)) + string("( .a(");
@@ -176,6 +176,7 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 
 			else if (tempStr.find('<') != string::npos  &&  tempStr.find("<<") == string::npos) {
 				//Less Than
+
 			}
 
 			else if (tempStr.find('>') != string::npos &&  tempStr.find(">>") == string::npos) {
@@ -238,14 +239,176 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 
 			else if (tempStr.find(">>") != string::npos) {
 				//Shift Right
+				//Start of Module
+				newStr = string("SHR") + string(" shiftRight") + string(to_string(i)) + string("( .a(");
+				//Find first variable name
+				found = tempStr.find_first_of('=');
+				for (j = found + 2; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ') {
+						break;
+					}
+					firstVar = firstVar + tempStr.at(j);
+
+				}
+				newStr = newStr + firstVar + "),";
+				newStr = newStr + ".sh_amt(";
+
+				//Find second variable name
+				found2 = tempStr.find_first_of(">>");
+				for (j = found2 + 3; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ' || tempStr.at(j) == '\n') {
+						break;
+					}
+					secondVar = secondVar + tempStr.at(j);
+				}
+				newStr = newStr + secondVar + "),";
+				newStr = newStr + ".d(";
+
+				for (j = 0; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ') {
+						break;
+					}
+					thirdVar = thirdVar + tempStr.at(j);
+				}
+				newStr = newStr + thirdVar;
+				newStr = newStr + "));";
 			}
 
 			else if (tempStr.find("<<") != string::npos) {
 				//Shift Left 
+				//Start of Module
+				newStr = string("SHL") + string(" shiftLeft") + string(to_string(i)) + string("( .a(");
+				//Find first variable name
+				found = tempStr.find_first_of('=');
+				for (j = found + 2; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ') {
+						break;
+					}
+					firstVar = firstVar + tempStr.at(j);
+
+				}
+				newStr = newStr + firstVar + "),";
+				newStr = newStr + ".sh_amt(";
+
+				//Find second variable name
+				found2 = tempStr.find_first_of("<<");
+				for (j = found2 + 3; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ' || tempStr.at(j) == '\n') {
+						break;
+					}
+					secondVar = secondVar + tempStr.at(j);
+				}
+				newStr = newStr + secondVar + "),";
+				newStr = newStr + ".d(";
+
+				for (j = 0; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ') {
+						break;
+					}
+					thirdVar = thirdVar + tempStr.at(j);
+				}
+				newStr = newStr + thirdVar;
+				newStr = newStr + "));";
 			}
 
 			else if (tempStr.find('idk') != string::npos) {
 				//Register
+			}
+
+			else if (tempStr.find('%') != string::npos) {
+				//Register
+				//Start of Module
+				newStr = string("MOD") + string(" modulo") + string(to_string(i)) + string("( .a(");
+				//Find first variable name
+				found = tempStr.find_first_of('=');
+				for (j = found + 2; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ') {
+						break;
+					}
+					firstVar = firstVar + tempStr.at(j);
+
+				}
+				newStr = newStr + firstVar + "),";
+				newStr = newStr + ".b(";
+
+				//Find second variable name
+				found2 = tempStr.find_first_of('%');
+				for (j = found2 + 2; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ' || tempStr.at(j) == '\n') {
+						break;
+					}
+					secondVar = secondVar + tempStr.at(j);
+				}
+				newStr = newStr + secondVar + "),";
+				newStr = newStr + ".rem(";
+
+				for (j = 0; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ') {
+						break;
+					}
+					thirdVar = thirdVar + tempStr.at(j);
+				}
+				newStr = newStr + thirdVar;
+				newStr = newStr + "));";
+			}
+
+			else if (tempStr.find("+ 1") != string::npos) {
+				//Incrementer
+				//Start of Module
+				newStr = string("INC") + string(" incrementer") + string(to_string(i)) + string("( .a(");
+				//Find first variable name
+				found = tempStr.find_first_of('=');
+				for (j = found + 2; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ') {
+						break;
+					}
+					firstVar = firstVar + tempStr.at(j);
+
+				}
+				newStr = newStr + firstVar + "),";
+				newStr = newStr + ".d(";
+
+			
+
+				for (j = 0; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ') {
+						break;
+					}
+					thirdVar = thirdVar + tempStr.at(j);
+				}
+				newStr = newStr + thirdVar;
+				newStr = newStr + "));";
+			}
+
+			else if (tempStr.find("- 1") != string::npos) {
+				//Decrementer
+				//Start of Module
+				newStr = string("DEC") + string(" decrementer") + string(to_string(i)) + string("( .a(");
+				//Find first variable name
+				found = tempStr.find_first_of('=');
+				for (j = found + 2; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ') {
+						break;
+					}
+					firstVar = firstVar + tempStr.at(j);
+
+				}
+				newStr = newStr + firstVar + "),";
+				newStr = newStr + ".d(";
+
+
+
+				for (j = 0; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ') {
+						break;
+					}
+					thirdVar = thirdVar + tempStr.at(j);
+				}
+				newStr = newStr + thirdVar;
+				newStr = newStr + "));";
+			}
+			else {
+				newStr = "//Invalid";
 			}
 
 			returnStrVec.push_back(newStr);
