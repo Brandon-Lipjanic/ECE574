@@ -22,6 +22,9 @@ int main() {
 	string tempMod = "one = two % three";
 	string tempInc = "b = c + 1";
 	string tempDec = "b = c - 1";
+	string tempReg = "greg = h";
+	string tempEq = "dEQe = d == e";
+	string tempLt = "dLTe = d < e";
 	tempVecStr2.push_back(tempAdd);
 	tempVecStr2.push_back(tempSub);
 	tempVecStr2.push_back(tempDiv);
@@ -32,7 +35,9 @@ int main() {
 	tempVecStr2.push_back(tempMod);
 	tempVecStr2.push_back(tempInc);
 	tempVecStr2.push_back(tempDec);
-
+	tempVecStr2.push_back(tempReg);
+	tempVecStr2.push_back(tempEq);
+	tempVecStr2.push_back(tempLt);
 	//End Temp String for testing
 
 

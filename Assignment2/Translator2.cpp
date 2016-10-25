@@ -51,7 +51,7 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 					secondVar = secondVar + tempStr.at(j);
 				}
 				newStr = newStr + secondVar + "),";
-				newStr = newStr + "sum(";
+				newStr = newStr + ".sum(";
 
 				for (j = 0; j < tempStr.size(); j++) {
 					if (tempStr.at(j) == ' ') {
@@ -88,7 +88,7 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 					secondVar = secondVar + tempStr.at(j);
 				}
 				newStr = newStr + secondVar + "),";
-				newStr = newStr + "diff(";
+				newStr = newStr + ".diff(";
 
 				for (j = 0; j < tempStr.size(); j++) {
 					if (tempStr.at(j) == ' ') {
@@ -125,7 +125,7 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 					secondVar = secondVar + tempStr.at(j);
 				}
 				newStr = newStr + secondVar + "),";
-				newStr = newStr + "prod(";
+				newStr = newStr + ".prod(";
 
 				for (j = 0; j < tempStr.size(); j++) {
 					if (tempStr.at(j) == ' ') {
@@ -162,7 +162,7 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 					secondVar = secondVar + tempStr.at(j);
 				}
 				newStr = newStr + secondVar + "),";
-				newStr = newStr + "quot(";
+				newStr = newStr + ".quot(";
 
 				for (j = 0; j < tempStr.size(); j++) {
 					if (tempStr.at(j) == ' ') {
@@ -176,11 +176,119 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 
 			else if (tempStr.find('<') != string::npos  &&  tempStr.find("<<") == string::npos) {
 				//Less Than
+				//Start of Module
+				newStr = string("COMP") + string(" comparator") + string(to_string(i)) + string("( .a(");
+				//Find first variable name
+				found = tempStr.find_first_of('=');
+				for (j = found + 2; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ') {
+						break;
+					}
+					firstVar = firstVar + tempStr.at(j);
+
+				}
+				newStr = newStr + firstVar + "),";
+				newStr = newStr + ".b(";
+
+				//Find second variable name
+				found2 = tempStr.find_first_of('<');
+				for (j = found2 + 2; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ' || tempStr.at(j) == '\n') {
+						break;
+					}
+					secondVar = secondVar + tempStr.at(j);
+				}
+				newStr = newStr + secondVar + "),";
+				newStr = newStr + ".lt(";
+
+				for (j = 0; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ') {
+						break;
+					}
+					thirdVar = thirdVar + tempStr.at(j);
+				}
+				newStr = newStr + thirdVar;
+				newStr = newStr + "));";
 
 			}
 
 			else if (tempStr.find('>') != string::npos &&  tempStr.find(">>") == string::npos) {
 				//Greater Than
+				//Less Than
+				//Start of Module
+				newStr = string("COMP") + string(" comparator") + string(to_string(i)) + string("( .a(");
+				//Find first variable name
+				found = tempStr.find_first_of('=');
+				for (j = found + 2; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ') {
+						break;
+					}
+					firstVar = firstVar + tempStr.at(j);
+
+				}
+				newStr = newStr + firstVar + "),";
+				newStr = newStr + ".b(";
+
+				//Find second variable name
+				found2 = tempStr.find_first_of('>');
+				for (j = found2 + 2; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ' || tempStr.at(j) == '\n') {
+						break;
+					}
+					secondVar = secondVar + tempStr.at(j);
+				}
+				newStr = newStr + secondVar + "),";
+				newStr = newStr + ".gt(";
+
+				for (j = 0; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ') {
+						break;
+					}
+					thirdVar = thirdVar + tempStr.at(j);
+				}
+				newStr = newStr + thirdVar;
+				newStr = newStr + "));";
+
+			}
+
+			else if (tempStr.find("==") != string::npos) {
+				//Equal
+				//Less Than
+				//Start of Module
+				newStr = string("COMP") + string(" comparator") + string(to_string(i)) + string("( .a(");
+				//Find first variable name
+				found = tempStr.find_first_of('=');
+				for (j = found + 2; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ') {
+						break;
+					}
+					firstVar = firstVar + tempStr.at(j);
+
+				}
+				newStr = newStr + firstVar + "),";
+				newStr = newStr + ".b(";
+
+				//Find second variable name
+				found2 = tempStr.find_first_of("==");
+				//not working ^^ 
+				for (j = found2 + 2; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ' || tempStr.at(j) == '\n') {
+						break;
+					}
+					secondVar = secondVar + tempStr.at(j);
+				}
+				newStr = newStr + secondVar + "),";
+				newStr = newStr + ".eq(";
+
+				for (j = 0; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ') {
+						break;
+					}
+					thirdVar = thirdVar + tempStr.at(j);
+				}
+				newStr = newStr + thirdVar;
+				newStr = newStr + "));";
+
 			}
 
 			else if (tempStr.find('?') != string::npos) {
@@ -233,9 +341,6 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 				newStr = newStr + "));";
 			}
 
-			else if (tempStr.find("==") != string::npos) {
-				//Equal
-			}
 
 			else if (tempStr.find(">>") != string::npos) {
 				//Shift Right
