@@ -407,9 +407,41 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 				newStr = newStr + thirdVar;
 				newStr = newStr + "));";
 			}
-			else {
+
+			//Invalid Test
+			else if(tempStr.find('$') != string::npos){
 				newStr = "//Invalid";
 			}
+
+			else {
+			//Register
+			//Start of Module
+				newStr = string("REG") + string(" reg") + string(to_string(i)) + string("( .d(");
+				//Find first variable name
+				found = tempStr.find_first_of('=');
+				for (j = found + 2; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ') {
+						break;
+					}
+					firstVar = firstVar + tempStr.at(j);
+
+				}
+				newStr = newStr + firstVar + "),.Clk(Clk),.Rst(Rst),";
+				newStr = newStr + ".q(";
+
+
+
+				for (j = 0; j < tempStr.size(); j++) {
+					if (tempStr.at(j) == ' ') {
+						break;
+					}
+					thirdVar = thirdVar + tempStr.at(j);
+				}
+				newStr = newStr + thirdVar;
+				newStr = newStr + "));";
+
+			}
+
 
 			returnStrVec.push_back(newStr);
 			newStr = "";
