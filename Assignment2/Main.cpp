@@ -1,16 +1,21 @@
 #include "FileIO.h"
 #include "Translator.h"
+#include <stdio.h>
+#include "FileIO.h"
+#include "Translator.h"
 #include "Translator2.h"
 #include <stdio.h>
 #include <string>
 
 int main() {
-	int i;
+	int i,j;
 	vector<string> v;
 	vector<string> v1;
+	vector<string> v2;
 	vector<vector<string>> master;
-	vector<string> tempVecStr,tempVecStr2;
-
+	vector<int> signs;
+	vector<string> tempVecStr, tempVecStr2;
+/*
 	//Temp strings for testing
 	string tempAdd = "dd = xx + yy ";
 	string tempSub = "gg = ff - hh";
@@ -39,23 +44,29 @@ int main() {
 	tempVecStr2.push_back(tempEq);
 	tempVecStr2.push_back(tempLt);
 	//End Temp String for testing
+	*/
 
-
-	/*
-	v = readFile("474a_circuit3.txt");
-
+	
+	v = readFile("mixedcircuit3.txt");
 	for (i = 0; i < v.size(); ++i) {
 		v1 = getInputs(v[i]);
 		if(v1.size() != 0)
 			master.push_back(v1);
 	}
-	*/
-	tempVecStr = TranslateMainBlock(tempVecStr2);
 
+	for (j = 0; j < v.size(); ++j) {
+		if (v[j] != "")
+			v2.push_back(v[j]);
+	}
 
+	signs = determineSign(master);
+	
+	tempVecStr = TranslateMainBlock(v2);
+
+	/*
 	for (i = 0; i < tempVecStr.size(); i++) {
 		cout << tempVecStr.at(i) << endl;
-	}
+	}*/
 
 	return 0;
 }
