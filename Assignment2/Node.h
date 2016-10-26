@@ -11,18 +11,18 @@
 #include <fstream>
 #include <algorithm>
 
-class Edge;
+
 
 class Node{
 
 public:
-	vector<Edge> in_edges;
-	vector<Edge> out_edges;
-	double weight;
-	string type;
 
-	Node(vector<Edge> _in_edges, vector<Edge> _out_edges, double _weight, string _type);
+	double path;
+	std::string name;
+
+	Node(double _path, std::string _name);
 	
+
 };
 
 #endif

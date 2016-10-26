@@ -21,6 +21,7 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 	string secondVar = "";
 	string thirdVar = "";
 	string fourthVar = "";
+	string nameMod = "";
 
 	for (i = 0; i < inVec.size(); i++) {
 		tempStr = inVec.at(i);
@@ -61,6 +62,8 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 				}
 				newStr = newStr + thirdVar;
 				newStr = newStr + "));";
+
+				nameMod = thirdVar;
 			}
 
 			else if (tempStr.find('-') != string::npos && tempStr.find("- 1") == string::npos) {
@@ -548,11 +551,17 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 			}
 
 
+
+
+
 			returnStrVec.push_back(newStr);
 			newStr = "";
 			firstVar = "";
 			secondVar = "";
 			thirdVar = "";
+			fourthVar = "";
+
+			
 		}
 
 	}
