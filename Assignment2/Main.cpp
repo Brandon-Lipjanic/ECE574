@@ -15,6 +15,7 @@ int main() {
 	vector<vector<string>> master;
 	vector<int> signs;
 	vector<string> tempVecStr, tempVecStr2;
+	vector<int> bitWidth;
 
 	double criticalPath = -1;
 
@@ -63,7 +64,8 @@ int main() {
 	}
 
 	signs = determineSign(master);
-	
+	bitWidth = determinewidth(master);
+
 	tempVecStr = TranslateMainBlock(tempVecStr2);
 	criticalPath = calcCriticalPath(tempVecStr2);
 

@@ -7,3 +7,4 @@ vector<string> TranslateMainBlock(vector<string> inVec);
 double calcCriticalPath(vector<string> inVec);
 double calculateTime(string firstVar, string secondVar, string thirdVar, vector<Node*> *tempVecIn);
 double findMaxOfVector(vector <double> inVec);
+double findNodeTime(string modType, int bitWidth);
