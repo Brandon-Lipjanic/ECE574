@@ -67,7 +67,7 @@ int main() {
 	bitWidth = determinewidth(master);
 
 	tempVecStr = TranslateMainBlock(tempVecStr2);
-	criticalPath = calcCriticalPath(tempVecStr2);
+	criticalPath = calcCriticalPath(tempVecStr2, bitWidth);
 
 	cout << criticalPath << endl;
 	/*
