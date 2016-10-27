@@ -37,7 +37,7 @@ vector<string> vardef(vector<vector<string>> master) {
 				master.at(i).at(1).erase(0, 3);
 
 			}
-			else if (master.at(i).at(1).find("uint") == std::string::npos) {
+			else if (master.at(i).at(1).find("int") == std::string::npos) {
 				out.at(i).append(" int [");
 				master.at(i).at(1).erase(0, 2);
 			}

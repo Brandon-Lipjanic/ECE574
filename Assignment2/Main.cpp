@@ -4,6 +4,7 @@
 #include "FileIO.h"
 #include "Translator.h"
 #include "Translator2.h"
+#include "vardef.h"
 #include <stdio.h>
 #include <string>
 
@@ -15,7 +16,9 @@ int main() {
 	vector<vector<string>> master;
 	vector<int> signs;
 	vector<string> tempVecStr, tempVecStr2;
-/*
+	vector<string> vd;
+	vector<int> width;
+/*	
 	//Temp strings for testing
 	string tempAdd = "dd = xx + yy ";
 	string tempSub = "gg = ff - hh";
@@ -47,7 +50,7 @@ int main() {
 	*/
 
 	
-	v = readFile("mixedcircuit3.txt");
+	v = readFile("474a_circuit1.txt");
 	for (i = 0; i < v.size(); ++i) {
 		v1 = getInputs(v[i]);
 		if(v1.size() != 0)
@@ -59,8 +62,13 @@ int main() {
 			v2.push_back(v[j]);
 	}
 
+
+	vd = vardef(master);
+
 	signs = determineSign(master);
 	
+	width = determinewidth(master);
+
 	tempVecStr = TranslateMainBlock(v2);
 
 	/*
