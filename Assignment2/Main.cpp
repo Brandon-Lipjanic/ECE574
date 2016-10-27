@@ -15,7 +15,10 @@ int main() {
 	vector<vector<string>> master;
 	vector<int> signs;
 	vector<string> tempVecStr, tempVecStr2;
-/*
+
+	double criticalPath = -1;
+
+	/*
 	//Temp strings for testing
 	string tempAdd = "dd = xx + yy ";
 	string tempSub = "gg = ff - hh";
@@ -61,12 +64,15 @@ int main() {
 
 	signs = determineSign(master);
 	
-	tempVecStr = TranslateMainBlock(v2);
+	tempVecStr = TranslateMainBlock(tempVecStr2);
+	criticalPath = calcCriticalPath(tempVecStr2);
 
+	cout << criticalPath << endl;
 	/*
 	for (i = 0; i < tempVecStr.size(); i++) {
 		cout << tempVecStr.at(i) << endl;
-	}*/
+	}
+	*/
 
 	return 0;
 }
