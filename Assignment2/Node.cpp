@@ -7,8 +7,11 @@
 #include <algorithm>
 #include "Node.h"
 using namespace std;
-class Edge;
 
- Node::Node(vector<Edge> _in_edges, vector<Edge> _out_edges, double _weight, string _type) {
-
+ Node::Node(double _path, string _name) {
+	 
+	 this->path = _path;
+	 this->name = _name;
 }
+
+
