@@ -33,13 +33,13 @@ vector<string> vardef(vector<vector<string>> master) {
 		if (var == 1) {
 			if (master.at(i).at(1).find("uint") == std::string::npos) {
 
-				out.at(i).append(" uint [");
+				out.at(i).append(" int [");
 				master.at(i).at(1).erase(0, 3);
 
 			}
-			else if (master.at(i).at(1).find("uint") == std::string::npos) {
-				out.at(i).append(" int [");
-				master.at(i).at(1).erase(0, 2);
+			else if (master.at(i).at(1).find("int") == std::string::npos) {
+				out.at(i).append(" uint [");
+				master.at(i).at(1).erase(0, 4);
 			}
 			//add data width
 			n_string = master.at(i).at(1);
@@ -66,6 +66,5 @@ vector<string> vardef(vector<vector<string>> master) {
 		}
 		i++;
 	}
-	return out;
-	
+	return out;	
 }
