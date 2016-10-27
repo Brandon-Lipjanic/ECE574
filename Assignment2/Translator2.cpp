@@ -569,7 +569,7 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 }
 
 
-double calcCriticalPath(vector<string> inVec) {
+double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 
 	vector <string> returnStrVec;
 	string tempStr = "";
@@ -586,7 +586,6 @@ double calcCriticalPath(vector<string> inVec) {
 	vector <double> allCriticalTimes;
 	
 	double totalTime = 0;
-	double currNodeTime = 1;
 
 	double accumulatedTime = 0;
 
@@ -631,10 +630,10 @@ double calcCriticalPath(vector<string> inVec) {
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + currNodeTime;
+					totalTime = accumulatedTime + findNodeTime("add",bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = currNodeTime;
+					totalTime = findNodeTime("add" ,bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
@@ -675,10 +674,10 @@ double calcCriticalPath(vector<string> inVec) {
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + currNodeTime;
+					totalTime = accumulatedTime + findNodeTime("sub" ,bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = currNodeTime;
+					totalTime = findNodeTime( "sub",bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
@@ -721,10 +720,10 @@ double calcCriticalPath(vector<string> inVec) {
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + currNodeTime;
+					totalTime = accumulatedTime + findNodeTime( "mul",bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = currNodeTime;
+					totalTime = findNodeTime( "mul",bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
@@ -767,10 +766,10 @@ double calcCriticalPath(vector<string> inVec) {
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + currNodeTime;
+					totalTime = accumulatedTime + findNodeTime( "div",bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = currNodeTime;
+					totalTime = findNodeTime("div" ,bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
@@ -814,10 +813,10 @@ double calcCriticalPath(vector<string> inVec) {
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + currNodeTime;
+					totalTime = accumulatedTime + findNodeTime( "comp" ,bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = currNodeTime;
+					totalTime = findNodeTime( "comp",bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
@@ -861,10 +860,10 @@ double calcCriticalPath(vector<string> inVec) {
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + currNodeTime;
+					totalTime = accumulatedTime + findNodeTime("comp" ,bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = currNodeTime;
+					totalTime = findNodeTime( "comp",bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
@@ -911,10 +910,10 @@ double calcCriticalPath(vector<string> inVec) {
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + currNodeTime;
+					totalTime = accumulatedTime + findNodeTime( "comp",bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = currNodeTime;
+					totalTime = findNodeTime( "comp",bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
@@ -969,10 +968,10 @@ double calcCriticalPath(vector<string> inVec) {
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + currNodeTime;
+					totalTime = accumulatedTime + findNodeTime("mux" ,bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = currNodeTime;
+					totalTime = findNodeTime( "mux",bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
@@ -1016,10 +1015,10 @@ double calcCriticalPath(vector<string> inVec) {
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + currNodeTime;
+					totalTime = accumulatedTime + findNodeTime("shr" ,bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = currNodeTime;
+					totalTime = findNodeTime( "shr",bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
@@ -1063,10 +1062,10 @@ double calcCriticalPath(vector<string> inVec) {
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + currNodeTime;
+					totalTime = accumulatedTime + findNodeTime( "shl",bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = currNodeTime;
+					totalTime = findNodeTime( "shl",bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
@@ -1110,10 +1109,10 @@ double calcCriticalPath(vector<string> inVec) {
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + currNodeTime;
+					totalTime = accumulatedTime + findNodeTime("mod" ,bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = currNodeTime;
+					totalTime = findNodeTime("mod" ,bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
@@ -1149,10 +1148,10 @@ double calcCriticalPath(vector<string> inVec) {
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + currNodeTime;
+					totalTime = accumulatedTime + findNodeTime("inc" ,bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = currNodeTime;
+					totalTime = findNodeTime( "inc",bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
@@ -1188,10 +1187,10 @@ double calcCriticalPath(vector<string> inVec) {
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + currNodeTime;
+					totalTime = accumulatedTime + findNodeTime("dec" ,bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = currNodeTime;
+					totalTime = findNodeTime( "dec",bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
@@ -1232,10 +1231,10 @@ double calcCriticalPath(vector<string> inVec) {
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + currNodeTime;
+					totalTime = accumulatedTime + findNodeTime("reg" ,bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = currNodeTime;
+					totalTime = findNodeTime( "reg",bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
