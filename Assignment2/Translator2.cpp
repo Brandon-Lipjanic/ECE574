@@ -9,7 +9,7 @@
 #include "Node.h"
 using namespace std;
 
-vector<string> TranslateMainBlock(vector<string> inVec) {
+vector<string> TranslateMainBlock(vector<string> inVec, vector<int> bitWidth) {
 
 	vector <string> returnStrVec;
 	string tempStr = "";
@@ -33,7 +33,7 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 
 			if (tempStr.find('+') != string::npos && tempStr.find("+ 1") == string::npos) {
 				//Start of Module
-				newStr = string("ADD") + string(" adder") + string(to_string(i)) + string("( .a(");
+				newStr = string("ADD") + string ("#(") + to_string(bitWidth.at(i)) + string(")") + string(" adder") + string(to_string(i)) + string("( .a(");
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -72,7 +72,7 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 			else if (tempStr.find('-') != string::npos && tempStr.find("- 1") == string::npos) {
 				//Subtract
 				//Start of Module
-				newStr = string("SUB") + string(" subtractor") + string(to_string(i)) + string("( .a(");
+				newStr = string("SUB") + string("#(") + to_string(bitWidth.at(i)) + string(")") + string(" subtractor") + string(to_string(i)) + string("( .a(");
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -109,7 +109,7 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 			else if (tempStr.find('*') != string::npos) {
 				//Mul
 				//Start of Module
-				newStr = string("MUL") + string(" multiplier") + string(to_string(i)) + string("( .a(");
+				newStr = string("MUL") + string("#(") + to_string(bitWidth.at(i)) + string(")") + string(" multiplier") + string(to_string(i)) + string("( .a(");
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -146,7 +146,7 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 			else if (tempStr.find('/') != string::npos) {
 				//Div
 				//Start of Module
-				newStr = string("DIV") + string(" divider") + string(to_string(i)) + string("( .a(");
+				newStr = string("DIV") + string("#(") + to_string(bitWidth.at(i)) + string(")") + string(" divider") + string(to_string(i)) + string("( .a(");
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -183,7 +183,7 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 			else if (tempStr.find('<') != string::npos  &&  tempStr.find("<<") == string::npos) {
 				//Less Than
 				//Start of Module
-				newStr = string("COMP") + string(" comparator") + string(to_string(i)) + string("( .a(");
+				newStr = string("COMP") + string("#(") + to_string(bitWidth.at(i)) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -222,7 +222,7 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 				//Greater Than
 				//Less Than
 				//Start of Module
-				newStr = string("COMP") + string(" comparator") + string(to_string(i)) + string("( .a(");
+				newStr = string("COMP") + string("#(") + to_string(bitWidth.at(i)) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -261,7 +261,7 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 				//Equal
 				//Less Than
 				//Start of Module
-				newStr = string("COMP") + string(" comparator") + string(to_string(i)) + string("( .a(");
+				newStr = string("COMP") + string("#(") + to_string(bitWidth.at(i)) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -300,7 +300,7 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 			else if (tempStr.find('?') != string::npos) {
 				//Mux
 				//Start of Module
-				newStr = string("MUX2x1") + string(" multiplexer") + string(to_string(i)) + string("( .a(");
+				newStr = string("MUX2x1") + string("#(") + to_string(bitWidth.at(i)) + string(")") + string(" multiplexer") + string(to_string(i)) + string("( .a(");
 				//Find first variable name
 				found = tempStr.find_first_of('?');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -351,7 +351,7 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 			else if (tempStr.find(">>") != string::npos) {
 				//Shift Right
 				//Start of Module
-				newStr = string("SHR") + string(" shiftRight") + string(to_string(i)) + string("( .a(");
+				newStr = string("SHR") + string("#(") + to_string(bitWidth.at(i)) + string(")") + string(" shiftRight") + string(to_string(i)) + string("( .a(");
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -388,7 +388,7 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 			else if (tempStr.find("<<") != string::npos) {
 				//Shift Left 
 				//Start of Module
-				newStr = string("SHL") + string(" shiftLeft") + string(to_string(i)) + string("( .a(");
+				newStr = string("SHL") + string("#(") + to_string(bitWidth.at(i)) + string(")") + string(" shiftLeft") + string(to_string(i)) + string("( .a(");
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -425,7 +425,7 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 			else if (tempStr.find('%') != string::npos) {
 				//Register
 				//Start of Module
-				newStr = string("MOD") + string(" modulo") + string(to_string(i)) + string("( .a(");
+				newStr = string("MOD") + string("#(") + to_string(bitWidth.at(i)) + string(")") + string(" modulo") + string(to_string(i)) + string("( .a(");
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -462,7 +462,7 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 			else if (tempStr.find("+ 1") != string::npos) {
 				//Incrementer
 				//Start of Module
-				newStr = string("INC") + string(" incrementer") + string(to_string(i)) + string("( .a(");
+				newStr = string("INC") + string("#(") + to_string(bitWidth.at(i)) + string(")") + string(" incrementer") + string(to_string(i)) + string("( .a(");
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -490,7 +490,7 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 			else if (tempStr.find("- 1") != string::npos) {
 				//Decrementer
 				//Start of Module
-				newStr = string("DEC") + string(" decrementer") + string(to_string(i)) + string("( .a(");
+				newStr = string("DEC") + string("#(") + to_string(bitWidth.at(i)) + string(")") + string(" decrementer") + string(to_string(i)) + string("( .a(");
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -523,7 +523,7 @@ vector<string> TranslateMainBlock(vector<string> inVec) {
 			else {
 			//Register
 			//Start of Module
-				newStr = string("REG") + string(" reg") + string(to_string(i)) + string("( .d(");
+				newStr = string("REG") + string("#(") + to_string(bitWidth.at(i)) + string(")") + string(" reg") + string(to_string(i)) + string("( .d(");
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
