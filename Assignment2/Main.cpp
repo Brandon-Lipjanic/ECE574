@@ -51,7 +51,7 @@ int main() {
 	
 
 
-	v = readFile("mixedcircuit3.txt");
+	v = readFile("474a_circuit2.txt");
 	for (i = 0; i < v.size(); ++i) {
 		v1 = getInputs(v[i]);
 		if (v1.size() != 0)
