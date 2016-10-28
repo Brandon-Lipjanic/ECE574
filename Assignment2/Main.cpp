@@ -12,6 +12,7 @@ int main() {
 	vector<string> v;
 	vector<string> v1;
 	vector<string> v2;
+	vector<string> modulesString;
 	vector<vector<string>> master;
 	vector<int> signs;
 	vector<string> tempVecStr, tempVecStr2;
@@ -51,7 +52,13 @@ int main() {
 	
 
 
-	v = readFile("mixedcircuit3.txt");
+	v = readFile("474a_circuit1.txt");
+
+	for (i = 0; i < v.size(); i++) {
+		if (v.at(i).find('=') != string::npos) {
+			modulesString.push_back(v.at(i));
+		}
+	}
 	for (i = 0; i < v.size(); ++i) {
 		v1 = getInputs(v[i]);
 		if (v1.size() != 0)
@@ -66,8 +73,8 @@ int main() {
 	signs = determineSign(master);
 	bitWidth = determinewidth(master);
 
-	tempVecStr = TranslateMainBlock(tempVecStr2, bitWidth);
-	criticalPath = calcCriticalPath(tempVecStr2, bitWidth);
+	tempVecStr = TranslateMainBlock(modulesString, bitWidth);
+	criticalPath = calcCriticalPath(modulesString, bitWidth);
 
 	cout << criticalPath << endl;
 	/*
