@@ -20,7 +20,7 @@ int main() {
 
 	double criticalPath = -1;
 
-	
+	/*
 	//Temp strings for testing
 	string tempAdd = "dd = xx + yy ";
 	string tempSub = "gg = ff - hh";
@@ -50,7 +50,7 @@ int main() {
 	tempVecStr2.push_back(tempLt);
 	//End Temp String for testing
 	
-
+	*/
 
 	v = readFile("474a_circuit1.txt");
 
@@ -71,14 +71,8 @@ int main() {
 	}
 
 	signs = determineSign(master);
-	bitWidth.push_back(8);
-	bitWidth.push_back(8);
-	bitWidth.push_back(8);
-	bitWidth.push_back(8);
-	bitWidth.push_back(8);
-	bitWidth.push_back(8);
-	bitWidth.push_back(8);
-
+	//bitWidth = determinewidth(master);
+	bitWidth = { 8,8,8,8,16,16,16 };
 	tempVecStr = TranslateMainBlock(modulesString,signs, bitWidth);
 	criticalPath = calcCriticalPath(modulesString, bitWidth);
 
