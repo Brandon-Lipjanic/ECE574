@@ -1672,7 +1672,7 @@ double findNodeTime(string modType, int bitWidth) {
 	}
 
 	else {
-		return 0;
+		return 5.34;
 	}
 
 }

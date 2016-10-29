@@ -22,7 +22,7 @@ int main() {
 	string outp = "outputFile.v";
 	double criticalPath = -1;
 
-	
+	/*
 	//Temp strings for testing
 	string tempAdd = "dd = xx + yy ";
 	string tempSub = "gg = ff - hh";
@@ -52,8 +52,15 @@ int main() {
 	tempVecStr2.push_back(tempLt);
 	//End Temp String for testing
 	
+	*/
 
+
+
+<<<<<<< HEAD
 	v = readFile("474a_circuit2.txt");
+=======
+
+>>>>>>> c401d6f87713d57a14924cc8ebbb866270bc217c
 	v = readFile("474a_circuit1.txt");
 
 	for (i = 0; i < v.size(); i++) {
@@ -61,6 +68,10 @@ int main() {
 			modulesString.push_back(v.at(i));
 		}
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> c401d6f87713d57a14924cc8ebbb866270bc217c
 	for (i = 0; i < v.size(); ++i) {
 		v1 = getInputs(v[i]);
 		if (v1.size() != 0)
@@ -73,6 +84,7 @@ int main() {
 	}
 
 	signs = determineSign(master);
+<<<<<<< HEAD
 	bitWidth.push_back(8);
 	bitWidth.push_back(8);
 	bitWidth.push_back(8);
@@ -84,6 +96,11 @@ int main() {
 	out = vardef(master);
 	tempVecStr = TranslateMainBlock(modulesString, signs, bitWidth);
 	out.insert(out.end(), tempVecStr.begin(), tempVecStr.end());
+=======
+	bitWidth = determinewidth(master);
+	//bitWidth = { 8,8,8,8,16,16,16 };
+	tempVecStr = TranslateMainBlock(modulesString,signs, bitWidth);
+>>>>>>> c401d6f87713d57a14924cc8ebbb866270bc217c
 	criticalPath = calcCriticalPath(modulesString, bitWidth);
 
 	cout << criticalPath << endl;
