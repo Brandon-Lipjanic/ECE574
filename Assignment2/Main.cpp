@@ -4,6 +4,7 @@
 #include "FileIO.h"
 #include "Translator.h"
 #include "Translator2.h"
+#include "vardef.h"
 #include <stdio.h>
 #include <string>
 
@@ -16,8 +17,9 @@ int main() {
 	vector<vector<string>> master;
 	vector<int> signs;
 	vector<string> tempVecStr, tempVecStr2;
+	vector<string> out;
 	vector<int> bitWidth;
-
+	string outp = "outputFile.v";
 	double criticalPath = -1;
 
 	
@@ -51,10 +53,7 @@ int main() {
 	//End Temp String for testing
 	
 
-
-<<<<<<< HEAD
 	v = readFile("474a_circuit2.txt");
-=======
 	v = readFile("474a_circuit1.txt");
 
 	for (i = 0; i < v.size(); i++) {
@@ -62,7 +61,6 @@ int main() {
 			modulesString.push_back(v.at(i));
 		}
 	}
->>>>>>> 251975a5d28d53847a8ae5d10323dd6a295b3402
 	for (i = 0; i < v.size(); ++i) {
 		v1 = getInputs(v[i]);
 		if (v1.size() != 0)
@@ -83,7 +81,9 @@ int main() {
 	bitWidth.push_back(8);
 	bitWidth.push_back(8);
 
-	tempVecStr = TranslateMainBlock(modulesString,signs, bitWidth);
+	out = vardef(master);
+	tempVecStr = TranslateMainBlock(modulesString, signs, bitWidth);
+	out.insert(out.end(), tempVecStr.begin(), tempVecStr.end());
 	criticalPath = calcCriticalPath(modulesString, bitWidth);
 
 	cout << criticalPath << endl;
@@ -92,6 +92,7 @@ int main() {
 		cout << tempVecStr.at(i) << endl;
 	}
 	*/
+	writeFile(outp, out);
 
 	return 0;
 }
