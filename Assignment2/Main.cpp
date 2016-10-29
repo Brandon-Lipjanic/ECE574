@@ -71,7 +71,13 @@ int main() {
 	}
 
 	signs = determineSign(master);
-	bitWidth = determinewidth(master);
+	bitWidth.push_back(8);
+	bitWidth.push_back(8);
+	bitWidth.push_back(8);
+	bitWidth.push_back(8);
+	bitWidth.push_back(8);
+	bitWidth.push_back(8);
+	bitWidth.push_back(8);
 
 	tempVecStr = TranslateMainBlock(modulesString, bitWidth);
 	criticalPath = calcCriticalPath(modulesString, bitWidth);
