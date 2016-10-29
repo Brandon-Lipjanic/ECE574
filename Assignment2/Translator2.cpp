@@ -9,7 +9,7 @@
 #include "Node.h"
 using namespace std;
 
-vector<string> TranslateMainBlock(vector<string> inVec, vector<int> bitWidth) {
+vector<string> TranslateMainBlock(vector<string> inVec, vector<int> signs ,vector<int> bitWidth) {
 
 	vector <string> returnStrVec;
 	string tempStr = "";
@@ -33,7 +33,8 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> bitWidth) {
 
 			if (tempStr.find('+') != string::npos && tempStr.find("+ 1") == string::npos) {
 				//Start of Module
-				newStr = string("ADD") + string ("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" adder") + string(to_string(i)) + string("( .a(");
+				newStr = string("ADD") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" adder") + string(to_string(i)) + string("( .a(");
+				
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -146,8 +147,13 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> bitWidth) {
 			else if (tempStr.find('/') != string::npos) {
 				//Div
 				//Start of Module
-				newStr = string("DIV") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" divider") + string(to_string(i)) + string("( .a(");
-				//Find first variable name
+				if (signs.at(i) == 0) {
+					newStr = string("SDIV") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" divider") + string(to_string(i)) + string("( .a(");
+				}
+				else {
+					newStr = string("DIV") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" divider") + string(to_string(i)) + string("( .a(");
+				}
+					//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
 					if (tempStr.at(j) == ' ') {
@@ -183,8 +189,13 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> bitWidth) {
 			else if (tempStr.find('<') != string::npos  &&  tempStr.find("<<") == string::npos) {
 				//Less Than
 				//Start of Module
-				newStr = string("COMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
-				//Find first variable name
+				if (signs.at(i) == 0) {
+					newStr = string("SCOMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
+				}
+				else {
+					newStr = string("COMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
+				}
+					//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
 					if (tempStr.at(j) == ' ') {
@@ -222,7 +233,12 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> bitWidth) {
 				//Greater Than
 				//Less Than
 				//Start of Module
-				newStr = string("COMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
+				if (signs.at(i) == 0) {
+					newStr = string("SCOMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
+				}
+				else {
+					newStr = string("COMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
+				}
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -261,7 +277,13 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> bitWidth) {
 				//Equal
 				//Less Than
 				//Start of Module
-				newStr = string("COMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
+				if (signs.at(i) == 0) {
+					newStr = string("SCOMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
+					//Find first variable name
+				}
+				else {
+					newStr = string("COMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
+				}
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -351,7 +373,12 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> bitWidth) {
 			else if (tempStr.find(">>") != string::npos) {
 				//Shift Right
 				//Start of Module
-				newStr = string("SHR") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" shiftRight") + string(to_string(i)) + string("( .a(");
+				if (signs.at(i) == 0) {
+					newStr = string("SSHR") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" shiftRight") + string(to_string(i)) + string("( .a(");
+				}
+				else {
+					newStr = string("SHR") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" shiftRight") + string(to_string(i)) + string("( .a(");
+				}
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -425,7 +452,12 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> bitWidth) {
 			else if (tempStr.find('%') != string::npos) {
 				//Register
 				//Start of Module
-				newStr = string("MOD") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" modulo") + string(to_string(i)) + string("( .a(");
+				if (signs.at(i) == 0) {
+					newStr = string("SMOD") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" modulo") + string(to_string(i)) + string("( .a(");
+				}
+				else {
+					newStr = string("MOD") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" modulo") + string(to_string(i)) + string("( .a(");
+				}
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
