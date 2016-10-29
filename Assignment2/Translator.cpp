@@ -90,10 +90,13 @@ vector<int> determinewidth(vector<vector<string>> v ) {
 	
 		//delete all non variable definition statements from vd. vd becomes a separated variable definition vector
 		for (x = vd.size()-1; x >= 0; x--) {
-			if (vd.at(x).at(0).compare("input") == 1 || vd.at(x).at(0).compare("output") == 1 || vd.at(x).at(0).compare("register") == 1 || vd.at(x).at(0).compare("wire") == 1) {
-				//erase the rest of it 
+			if (vd.at(x).at(0).compare("input") != 0 && vd.at(x).at(0).compare("output") != 0 && vd.at(x).at(0).compare("register") != 0 && vd.at(x).at(0).compare("wire") != 0) {
 				vd.pop_back();
 			}
+			//if (vd.at(x).at(0) == "input" || vd.at(x).at(0) == "output" || vd.at(x).at(0) == "wire" || vd.at(x).at(0) == "register") {
+			//	//erase the rest of it 
+			//	vd.pop_back();
+			//}
 		}
 		for (x = 0; x < vd.size(); x++) {//extract number from vd.at(i).at(1)
 			if (vd.at(x).at(1).find("uint") == std::string::npos) {
@@ -106,11 +109,11 @@ vector<int> determinewidth(vector<vector<string>> v ) {
 
 		for (i = 0; i < v.size(); ++i) {
 			//look at v to determine if line 
-			if (v.at(i).at(0) == "input" || v.at(i).at(0) == "output" || v.at(i).at(0) == "wire" || v.at(i).at(0) == "register") {}//do nothing
+			if (v.at(i).at(0) == "input" || v.at(i).at(0) == "output" || v.at(i).at(0) == "wire" || v.at(i).at(0) == "register" || v.at(i).at(0) == "") {}//do nothing
 			else {
 				//determine if compare module
 				for (y = 0; y < v.at(i).size(); y++) {
-					if (v.at(i).at(y).compare(">") == 0 || v.at(i).at(y).compare("<") == 0) {
+					if (v.at(i).at(y).compare(">") == 0 || v.at(i).at(y).compare("<") == 0 || v.at(i).at(y).compare("==") == 0) {
 						found = 1;
 					}
 				}
@@ -129,12 +132,10 @@ vector<int> determinewidth(vector<vector<string>> v ) {
 						}
 					}
 					if (temp_width.at(0) > temp_width.at(1)) {
-						temp = stoi(vd.at(x-1).at(0));
-						width.push_back(temp);
+						width.push_back(temp_width.at(0));
 					}
 					else {
-						temp = stoi(vd.at(x-1).at(1));
-						width.push_back(temp);
+						width.push_back(temp_width.at(1));
 					}
 				}
 				else {//size of output
