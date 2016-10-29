@@ -56,7 +56,7 @@ vector<string> vardef(vector<vector<string>> master) {
 			while (k < master.at(i).size())
 			{
 				out.at(i).append(master.at(i).at(k));
-				if (i != (master.at(i).size() - 1)) {
+				if (k != (master.at(i).size() - 1)) {
 
 					out.at(i).append(", ");
 				}
