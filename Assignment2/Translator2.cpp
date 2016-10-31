@@ -190,7 +190,7 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> signs ,vecto
 				//Less Than
 				//Start of Module
 				if (signs.at(i) == 0) {
-					newStr = string("COMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
+					newStr = string("SCOMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
 				}
 				else {
 					newStr = string("COMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
@@ -234,8 +234,7 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> signs ,vecto
 				//Less Than
 				//Start of Module
 				if (signs.at(i) == 0) {
-					//scomp
-					newStr = string("COMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
+					newStr = string("SCOMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
 				}
 				else {
 					newStr = string("COMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
@@ -279,8 +278,7 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> signs ,vecto
 				//Less Than
 				//Start of Module
 				if (signs.at(i) == 0) {
-					//scomp
-					newStr = string("COMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
+					newStr = string("SCOMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
 					//Find first variable name
 				}
 				else {
@@ -299,14 +297,23 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> signs ,vecto
 				newStr = newStr + ".b(";
 
 				//Find second variable name
-				found2 = tempStr.find_first_of("==");
-				//not working ^^ 
-				for (j = found2 + 2; j < tempStr.size(); j++) {
+				found2 = tempStr.find_first_of('=');
+				//not working ^^
+				char tempChar = tempStr.at(found2 + 1);
+				int tempItr = found2 + 1;
+				while (tempChar != '=') {
+					tempItr++;
+					tempChar = tempStr.at(tempItr);
+				}
+				tempItr += 3;
+			
+				for (j = tempItr; j < tempStr.size(); j++) {
 					if (tempStr.at(j) == ' ' || tempStr.at(j) == '\n') {
 						break;
 					}
 					secondVar = secondVar + tempStr.at(j);
 				}
+	
 				newStr = newStr + secondVar + "),";
 				newStr = newStr + ".eq(";
 

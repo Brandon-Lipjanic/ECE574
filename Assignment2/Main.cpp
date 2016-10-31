@@ -55,7 +55,7 @@ int main() {
 	*/
 
 
-	v = readFile("474a_circuit1.txt");
+	v = readFile("474a_circuit2.txt");
 
 	for (i = 0; i < v.size(); i++) {
 		if (v.at(i).find('=') != string::npos) {
