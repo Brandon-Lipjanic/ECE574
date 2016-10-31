@@ -190,7 +190,7 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> signs ,vecto
 				//Less Than
 				//Start of Module
 				if (signs.at(i) == 0) {
-					newStr = string("SCOMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
+					newStr = string("COMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
 				}
 				else {
 					newStr = string("COMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
@@ -234,7 +234,8 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> signs ,vecto
 				//Less Than
 				//Start of Module
 				if (signs.at(i) == 0) {
-					newStr = string("SCOMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
+					//scomp
+					newStr = string("COMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
 				}
 				else {
 					newStr = string("COMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
@@ -278,7 +279,8 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> signs ,vecto
 				//Less Than
 				//Start of Module
 				if (signs.at(i) == 0) {
-					newStr = string("SCOMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
+					//scomp
+					newStr = string("COMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
 					//Find first variable name
 				}
 				else {

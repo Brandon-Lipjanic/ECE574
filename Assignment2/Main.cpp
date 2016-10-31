@@ -16,7 +16,7 @@ int main() {
 	vector<string> modulesString;
 	vector<vector<string>> master;
 	vector<int> signs;
-	vector<string> tempVecStr, tempVecStr2;
+	vector<string> tempVecStr, tempVecStr2, tempVecStr3;
 	vector<string> out;
 	vector<int> bitWidth;
 	string outp = "outputFile.v";
@@ -51,11 +51,11 @@ int main() {
 	tempVecStr2.push_back(tempEq);
 	tempVecStr2.push_back(tempLt);
 	//End Temp String for testing
-	
+
 	*/
 
 
-	v = readFile("474a_circuit2.txt");
+	v = readFile("474a_circuit1.txt");
 
 	for (i = 0; i < v.size(); i++) {
 		if (v.at(i).find('=') != string::npos) {
@@ -74,20 +74,23 @@ int main() {
 	}
 
 	signs = determineSign(master);
-
-
-	out = vardef(master);
 	bitWidth = determinewidth(master);
+
+	out.push_back("module Assignment2(" + module(master));
+	tempVecStr2 = vardef(master);
+	out.insert(out.end(), tempVecStr2.begin(), tempVecStr2.end());
 	tempVecStr = TranslateMainBlock(modulesString, signs, bitWidth);
 	out.insert(out.end(), tempVecStr.begin(), tempVecStr.end());
-	
-	tempVecStr = TranslateMainBlock(modulesString,signs, bitWidth);
+	out.push_back("endmodule");
+
+
+
 	criticalPath = calcCriticalPath(modulesString, bitWidth);
 
 	cout << criticalPath << endl;
 	/*
 	for (i = 0; i < tempVecStr.size(); i++) {
-		cout << tempVecStr.at(i) << endl;
+	cout << tempVecStr.at(i) << endl;
 	}
 	*/
 	writeFile(outp, out);
