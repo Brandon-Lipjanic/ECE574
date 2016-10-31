@@ -55,7 +55,7 @@ int main() {
 	*/
 
 
-	v = readFile("474a_circuit1.txt");
+	v = readFile("474a_circuit2.txt");
 
 	for (i = 0; i < v.size(); i++) {
 		if (v.at(i).find('=') != string::npos) {
@@ -74,19 +74,13 @@ int main() {
 	}
 
 	signs = determineSign(master);
-	bitWidth.push_back(8);
-	bitWidth.push_back(8);
-	bitWidth.push_back(8);
-	bitWidth.push_back(8);
-	bitWidth.push_back(8);
-	bitWidth.push_back(8);
-	bitWidth.push_back(8);
+
 
 	out = vardef(master);
+	bitWidth = determinewidth(master);
 	tempVecStr = TranslateMainBlock(modulesString, signs, bitWidth);
 	out.insert(out.end(), tempVecStr.begin(), tempVecStr.end());
-	bitWidth = determinewidth(master);
-	//bitWidth = { 8,8,8,8,16,16,16 };
+	
 	tempVecStr = TranslateMainBlock(modulesString,signs, bitWidth);
 	criticalPath = calcCriticalPath(modulesString, bitWidth);
 
