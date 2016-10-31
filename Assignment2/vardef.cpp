@@ -70,3 +70,21 @@ vector<string> vardef(vector<vector<string>> master) {
 	}
 	return out;	
 }
+
+string module(vector<vector<string>> master) {
+	string output;
+	int i = 0;
+	int j = 0;
+	while (i < master.size() ) {
+		if (master.at(i).at(0).compare("input") == 0 || master.at(i).at(0).compare("output") == 0) {
+			for (j = 2; j < master.at(i).size(); j++) {
+
+					output.append(" " + master.at(i).at(j) + ",");
+			}
+		}
+		i++;
+	}
+	output.erase(output.size() - 1);
+	output.append(");");
+	return output;
+}

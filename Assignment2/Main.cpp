@@ -16,7 +16,7 @@ int main() {
 	vector<string> modulesString;
 	vector<vector<string>> master;
 	vector<int> signs;
-	vector<string> tempVecStr, tempVecStr2;
+	vector<string> tempVecStr, tempVecStr2, tempVecStr3;
 	vector<string> out;
 	vector<int> bitWidth;
 	string outp = "outputFile.v";
@@ -82,9 +82,12 @@ int main() {
 	bitWidth.push_back(8);
 	bitWidth.push_back(8);
 
-	out = vardef(master);
+	out.push_back("module (" + module(master));
+	tempVecStr2 = vardef(master);
+	out.insert(out.end(), tempVecStr2.begin(), tempVecStr2.end());
 	tempVecStr = TranslateMainBlock(modulesString, signs, bitWidth);
 	out.insert(out.end(), tempVecStr.begin(), tempVecStr.end());
+	out.push_back("endmodule;");
 	bitWidth = determinewidth(master);
 	//bitWidth = { 8,8,8,8,16,16,16 };
 	tempVecStr = TranslateMainBlock(modulesString,signs, bitWidth);
