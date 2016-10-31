@@ -87,7 +87,7 @@ int main() {
 
 	criticalPath = calcCriticalPath(modulesString, bitWidth);
 
-	cout << criticalPath << endl;
+	cout << "Critical Path: " << criticalPath << " ns" << endl;
 	/*
 	for (i = 0; i < tempVecStr.size(); i++) {
 	cout << tempVecStr.at(i) << endl;
