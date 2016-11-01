@@ -1418,6 +1418,7 @@ double findNodeTime(string modType, int bitWidth) {
 	}
 
 	else if (modType == "reg") {
+		return 0; 
 		if (bitWidth == 1) {
 			return 2.616;
 		}
