@@ -75,7 +75,7 @@ int main(int argc, char* argv[]) {
 		if (v[j] != "")
 			v2.push_back(v[j]);
 	}
-
+	
 	signs = determineSign(master);
 	bitWidth = determinewidth(master);
 
@@ -92,11 +92,11 @@ int main(int argc, char* argv[]) {
 
 	cout << "Critical Path: " << criticalPath << " ns" << endl;
 	/*
-	for (i = 0; i < tempVecStr.size(); i++) {
-	cout << tempVecStr.at(i) << endl;
-	}
+	//for (i = 0; i < tempVecStr.size(); i++) {
+	//cout << tempVecStr.at(i) << endl;
+	//}
 	*/
 	writeFile(outp, out);
-
+	
 	return 0;
 }
