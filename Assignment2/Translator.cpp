@@ -6,6 +6,7 @@
 #include <vector>
 #include <sstream>
 #include <algorithm>
+#include "Translator.h"
 using namespace std;
 
 int size = 0;
@@ -24,7 +25,7 @@ vector<string> getInputs(string str) {
 	string token;
 	while ((pos = str.find(delimiter)) != string::npos) {
 		token = str.substr(0, pos);
-		//cout << token << endl;
+		cout << token << endl;
 		str.erase(0, pos + delimiter.length());
 		v.push_back(token);
 	}
@@ -36,7 +37,7 @@ vector<string> getInputs(string str) {
 
 }
 
-vector<int> determineSign(vector<vector<string>> v) {
+vector<int> determineSign(vector<vector<string> > v) {
 	int i, j, k, h, check, match;
 	vector<string> temp;
 	vector<string> signedVars;
@@ -73,7 +74,7 @@ vector<int> determineSign(vector<vector<string>> v) {
 	return signs;
 }
 
-vector<int> determinewidth(vector<vector<string>> v ) {
+vector<int> determinewidth(vector<vector<string> > v ) {
 
 	int i = 0;
 	int k = 0;

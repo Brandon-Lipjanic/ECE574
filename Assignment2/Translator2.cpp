@@ -9,7 +9,7 @@
 #include "Node.h"
 using namespace std;
 
-vector<string> TranslateMainBlock(vector<string> inVec, vector<int> signs ,vector<int> bitWidth) {
+vector<string> TranslateMainBlock(vector<string> inVec, vector<int> signs, vector<int> bitWidth) {
 
 	vector <string> returnStrVec;
 	string tempStr = "";
@@ -22,19 +22,19 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> signs ,vecto
 	string secondVar = "";
 	string thirdVar = "";
 	string fourthVar = "";
-	
-	
+
+
 
 
 	for (i = 0; i < inVec.size(); i++) {
 		tempStr = inVec.at(i);
-		
+
 		if (tempStr.find('=') != string::npos) {
 
 			if (tempStr.find('+') != string::npos && tempStr.find("+ 1") == string::npos) {
 				//Start of Module
 				newStr = string("ADD") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" adder") + string(to_string(i)) + string("( .a(");
-				
+
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -67,7 +67,7 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> signs ,vecto
 				newStr = newStr + thirdVar;
 				newStr = newStr + "));";
 
-				
+
 			}
 
 			else if (tempStr.find('-') != string::npos && tempStr.find("- 1") == string::npos) {
@@ -153,7 +153,7 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> signs ,vecto
 				else {
 					newStr = string("DIV") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" divider") + string(to_string(i)) + string("( .a(");
 				}
-					//Find first variable name
+				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
 					if (tempStr.at(j) == ' ') {
@@ -195,7 +195,7 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> signs ,vecto
 				else {
 					newStr = string("COMP") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" comparator") + string(to_string(i)) + string("( .a(");
 				}
-					//Find first variable name
+				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
 					if (tempStr.at(j) == ' ') {
@@ -306,14 +306,14 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> signs ,vecto
 					tempChar = tempStr.at(tempItr);
 				}
 				tempItr += 3;
-			
+
 				for (j = tempItr; j < tempStr.size(); j++) {
 					if (tempStr.at(j) == ' ' || tempStr.at(j) == '\n') {
 						break;
 					}
 					secondVar = secondVar + tempStr.at(j);
 				}
-	
+
 				newStr = newStr + secondVar + "),";
 				newStr = newStr + ".eq(";
 
@@ -516,7 +516,7 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> signs ,vecto
 				newStr = newStr + firstVar + "),";
 				newStr = newStr + ".d(";
 
-			
+
 
 				for (j = 0; j < tempStr.size(); j++) {
 					if (tempStr.at(j) == ' ') {
@@ -557,13 +557,13 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> signs ,vecto
 			}
 
 			//Invalid Test
-			else if(tempStr.find('$') != string::npos){
+			else if (tempStr.find('$') != string::npos) {
 				newStr = "//Invalid";
 			}
 
 			else {
-			//Register
-			//Start of Module
+				//Register
+				//Start of Module
 				newStr = string("REG") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" reg") + string(to_string(i)) + string("( .d(");
 				//Find first variable name
 				found = tempStr.find_first_of('=');
@@ -601,7 +601,7 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> signs ,vecto
 			thirdVar = "";
 			fourthVar = "";
 
-			
+
 		}
 
 	}
@@ -625,7 +625,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 	string nameMod = "";
 
 	vector <double> allCriticalTimes;
-	
+
 	double totalTime = 0;
 
 	double accumulatedTime = 0;
@@ -671,10 +671,10 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + findNodeTime("add",bitWidthVec.at(i));;
+					totalTime = accumulatedTime + findNodeTime("add", bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = findNodeTime("add" ,bitWidthVec.at(i));;
+					totalTime = findNodeTime("add", bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
@@ -693,7 +693,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					firstVar = firstVar + tempStr.at(j);
 
 				}
-			
+
 
 				//Find second variable name
 				found2 = tempStr.find_first_of('-');
@@ -703,7 +703,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					}
 					secondVar = secondVar + tempStr.at(j);
 				}
-			
+
 
 				for (j = 0; j < tempStr.size(); j++) {
 					if (tempStr.at(j) == ' ') {
@@ -715,22 +715,22 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + findNodeTime("sub" ,bitWidthVec.at(i));;
+					totalTime = accumulatedTime + findNodeTime("sub", bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = findNodeTime( "sub",bitWidthVec.at(i));;
+					totalTime = findNodeTime("sub", bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
 				allCriticalTimes.push_back(totalTime);
 				allNodes.push_back(tempNode);
-			
+
 			}
 
 			else if (tempStr.find('*') != string::npos) {
 				//Mul
 				//Start of Module
-			
+
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -740,7 +740,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					firstVar = firstVar + tempStr.at(j);
 
 				}
-	
+
 				//Find second variable name
 				found2 = tempStr.find_first_of('*');
 				for (j = found2 + 2; j < tempStr.size(); j++) {
@@ -749,7 +749,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					}
 					secondVar = secondVar + tempStr.at(j);
 				}
-			
+
 
 				for (j = 0; j < tempStr.size(); j++) {
 					if (tempStr.at(j) == ' ') {
@@ -757,14 +757,14 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					}
 					thirdVar = thirdVar + tempStr.at(j);
 				}
-				
+
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + findNodeTime( "mul",bitWidthVec.at(i));;
+					totalTime = accumulatedTime + findNodeTime("mul", bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = findNodeTime( "mul",bitWidthVec.at(i));;
+					totalTime = findNodeTime("mul", bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
@@ -775,7 +775,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 			else if (tempStr.find('/') != string::npos) {
 				//Div
 				//Start of Module
-				
+
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -785,7 +785,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					firstVar = firstVar + tempStr.at(j);
 
 				}
-			
+
 
 				//Find second variable name
 				found2 = tempStr.find_first_of('/');
@@ -795,7 +795,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					}
 					secondVar = secondVar + tempStr.at(j);
 				}
-		
+
 
 				for (j = 0; j < tempStr.size(); j++) {
 					if (tempStr.at(j) == ' ') {
@@ -803,14 +803,14 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					}
 					thirdVar = thirdVar + tempStr.at(j);
 				}
-				
+
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + findNodeTime( "div",bitWidthVec.at(i));;
+					totalTime = accumulatedTime + findNodeTime("div", bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = findNodeTime("div" ,bitWidthVec.at(i));;
+					totalTime = findNodeTime("div", bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
@@ -822,7 +822,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 			else if (tempStr.find('<') != string::npos  &&  tempStr.find("<<") == string::npos) {
 				//Less Than
 				//Start of Module
-			
+
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -832,7 +832,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					firstVar = firstVar + tempStr.at(j);
 
 				}
-			
+
 
 				//Find second variable name
 				found2 = tempStr.find_first_of('<');
@@ -842,7 +842,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					}
 					secondVar = secondVar + tempStr.at(j);
 				}
-			
+
 
 				for (j = 0; j < tempStr.size(); j++) {
 					if (tempStr.at(j) == ' ') {
@@ -850,14 +850,14 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					}
 					thirdVar = thirdVar + tempStr.at(j);
 				}
-				
+
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + findNodeTime( "comp" ,bitWidthVec.at(i));;
+					totalTime = accumulatedTime + findNodeTime("comp", bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = findNodeTime( "comp",bitWidthVec.at(i));;
+					totalTime = findNodeTime("comp", bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
@@ -869,7 +869,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 				//Greater Than
 				//Less Than
 				//Start of Module
-				
+
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -879,7 +879,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					firstVar = firstVar + tempStr.at(j);
 
 				}
-			
+
 
 				//Find second variable name
 				found2 = tempStr.find_first_of('>');
@@ -889,7 +889,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					}
 					secondVar = secondVar + tempStr.at(j);
 				}
-			
+
 
 				for (j = 0; j < tempStr.size(); j++) {
 					if (tempStr.at(j) == ' ') {
@@ -897,14 +897,14 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					}
 					thirdVar = thirdVar + tempStr.at(j);
 				}
-			
+
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + findNodeTime("comp" ,bitWidthVec.at(i));;
+					totalTime = accumulatedTime + findNodeTime("comp", bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = findNodeTime( "comp",bitWidthVec.at(i));;
+					totalTime = findNodeTime("comp", bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
@@ -918,7 +918,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 				//Equal
 				//Less Than
 				//Start of Module
-				
+
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -928,7 +928,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					firstVar = firstVar + tempStr.at(j);
 
 				}
-			
+
 
 				//Find second variable name
 				found2 = tempStr.find_first_of("==");
@@ -939,7 +939,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					}
 					secondVar = secondVar + tempStr.at(j);
 				}
-			
+
 
 				for (j = 0; j < tempStr.size(); j++) {
 					if (tempStr.at(j) == ' ') {
@@ -947,14 +947,14 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					}
 					thirdVar = thirdVar + tempStr.at(j);
 				}
-				
+
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + findNodeTime( "comp",bitWidthVec.at(i));;
+					totalTime = accumulatedTime + findNodeTime("comp", bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = findNodeTime( "comp",bitWidthVec.at(i));;
+					totalTime = findNodeTime("comp", bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
@@ -966,7 +966,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 			else if (tempStr.find('?') != string::npos) {
 				//Mux
 				//Start of Module
-			
+
 				//Find first variable name
 				found = tempStr.find_first_of('?');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -976,7 +976,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					firstVar = firstVar + tempStr.at(j);
 
 				}
-			
+
 				//Find second variable name
 				found2 = tempStr.find_first_of(':');
 				for (j = found2 + 2; j < tempStr.size(); j++) {
@@ -985,7 +985,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					}
 					secondVar = secondVar + tempStr.at(j);
 				}
-			
+
 
 				//Find fourth Variable Name
 				found2 = tempStr.find_first_of('=');
@@ -996,7 +996,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					fourthVar = fourthVar + tempStr.at(j);
 				}
 
-			
+
 
 				//Find third Variable name
 				for (j = 0; j < tempStr.size(); j++) {
@@ -1005,14 +1005,14 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					}
 					thirdVar = thirdVar + tempStr.at(j);
 				}
-			
+
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + findNodeTime("mux" ,bitWidthVec.at(i));;
+					totalTime = accumulatedTime + findNodeTime("mux", bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = findNodeTime( "mux",bitWidthVec.at(i));;
+					totalTime = findNodeTime("mux", bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
@@ -1024,7 +1024,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 			else if (tempStr.find(">>") != string::npos) {
 				//Shift Right
 				//Start of Module
-			
+
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -1034,7 +1034,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					firstVar = firstVar + tempStr.at(j);
 
 				}
-				
+
 
 				//Find second variable name
 				found2 = tempStr.find_first_of(">>");
@@ -1044,7 +1044,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					}
 					secondVar = secondVar + tempStr.at(j);
 				}
-			
+
 
 				for (j = 0; j < tempStr.size(); j++) {
 					if (tempStr.at(j) == ' ') {
@@ -1052,14 +1052,14 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					}
 					thirdVar = thirdVar + tempStr.at(j);
 				}
-			
+
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + findNodeTime("shr" ,bitWidthVec.at(i));;
+					totalTime = accumulatedTime + findNodeTime("shr", bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = findNodeTime( "shr",bitWidthVec.at(i));;
+					totalTime = findNodeTime("shr", bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
@@ -1071,7 +1071,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 			else if (tempStr.find("<<") != string::npos) {
 				//Shift Left 
 				//Start of Module
-			
+
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -1081,7 +1081,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					firstVar = firstVar + tempStr.at(j);
 
 				}
-		
+
 
 				//Find second variable name
 				found2 = tempStr.find_first_of("<<");
@@ -1091,7 +1091,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					}
 					secondVar = secondVar + tempStr.at(j);
 				}
-			
+
 
 				for (j = 0; j < tempStr.size(); j++) {
 					if (tempStr.at(j) == ' ') {
@@ -1103,22 +1103,22 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + findNodeTime( "shl",bitWidthVec.at(i));;
+					totalTime = accumulatedTime + findNodeTime("shl", bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = findNodeTime( "shl",bitWidthVec.at(i));;
+					totalTime = findNodeTime("shl", bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
 				allCriticalTimes.push_back(totalTime);
 				allNodes.push_back(tempNode);
-				
+
 			}
 
 			else if (tempStr.find('%') != string::npos) {
 				//Register
 				//Start of Module
-			
+
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -1128,7 +1128,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					firstVar = firstVar + tempStr.at(j);
 
 				}
-			
+
 
 				//Find second variable name
 				found2 = tempStr.find_first_of('%');
@@ -1138,7 +1138,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					}
 					secondVar = secondVar + tempStr.at(j);
 				}
-				
+
 
 				for (j = 0; j < tempStr.size(); j++) {
 					if (tempStr.at(j) == ' ') {
@@ -1150,22 +1150,22 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + findNodeTime("mod" ,bitWidthVec.at(i));;
+					totalTime = accumulatedTime + findNodeTime("mod", bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = findNodeTime("mod" ,bitWidthVec.at(i));;
+					totalTime = findNodeTime("mod", bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
 				allCriticalTimes.push_back(totalTime);
 				allNodes.push_back(tempNode);
-			
+
 			}
 
 			else if (tempStr.find("+ 1") != string::npos) {
 				//Incrementer
 				//Start of Module
-				
+
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -1175,7 +1175,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					firstVar = firstVar + tempStr.at(j);
 
 				}
-		
+
 
 
 
@@ -1189,22 +1189,22 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + findNodeTime("inc" ,bitWidthVec.at(i));;
+					totalTime = accumulatedTime + findNodeTime("inc", bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = findNodeTime( "inc",bitWidthVec.at(i));;
+					totalTime = findNodeTime("inc", bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
 				allCriticalTimes.push_back(totalTime);
 				allNodes.push_back(tempNode);
-			
+
 			}
 
 			else if (tempStr.find("- 1") != string::npos) {
 				//Decrementer
 				//Start of Module
-				
+
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -1214,7 +1214,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					firstVar = firstVar + tempStr.at(j);
 
 				}
-			
+
 
 
 
@@ -1224,14 +1224,14 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					}
 					thirdVar = thirdVar + tempStr.at(j);
 				}
-			
+
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + findNodeTime("dec" ,bitWidthVec.at(i));;
+					totalTime = accumulatedTime + findNodeTime("dec", bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = findNodeTime( "dec",bitWidthVec.at(i));;
+					totalTime = findNodeTime("dec", bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
@@ -1242,13 +1242,13 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 
 			//Invalid Test
 			else if (tempStr.find('$') != string::npos) {
-				
+
 			}
 
 			else {
 				//Register
 				//Start of Module
-				
+
 				//Find first variable name
 				found = tempStr.find_first_of('=');
 				for (j = found + 2; j < tempStr.size(); j++) {
@@ -1258,7 +1258,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					firstVar = firstVar + tempStr.at(j);
 
 				}
-			
+
 
 
 
@@ -1268,14 +1268,14 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 					}
 					thirdVar = thirdVar + tempStr.at(j);
 				}
-		
+
 				nameMod = thirdVar;
 				accumulatedTime = calculateTime(firstVar, secondVar, fourthVar, &allNodes);
 				if (accumulatedTime != -1) {
-					totalTime = accumulatedTime + findNodeTime("reg" ,bitWidthVec.at(i));;
+					totalTime = accumulatedTime + findNodeTime("reg", bitWidthVec.at(i));;
 				}
 				else {
-					totalTime = findNodeTime( "reg",bitWidthVec.at(i));;
+					totalTime = findNodeTime("reg", bitWidthVec.at(i));;
 				}
 
 				Node* tempNode = new Node(totalTime, nameMod);
@@ -1285,7 +1285,7 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 
 			}
 
-			
+
 
 
 
@@ -1298,6 +1298,9 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 
 	}
 
+	for (j = 0; j < allNodes.size(); j++) {
+		cout << endl << allNodes.at(j)->name;
+	}
 
 	return findMaxOfVector(allCriticalTimes);
 
@@ -1328,7 +1331,7 @@ double calculateTime(string firstVar, string secondVar, string thirdVar, vector<
 
 	for (i = 0; i < tempVecIn.size(); i++) {
 		if (tempVecIn.at(i)->name == firstVar) {
-			
+
 			timeOne = tempVecIn.at(i)->path;
 			break;
 		}
@@ -1336,7 +1339,7 @@ double calculateTime(string firstVar, string secondVar, string thirdVar, vector<
 
 	for (i = 0; i < tempVecIn.size(); i++) {
 		if (tempVecIn.at(i)->name == secondVar) {
-			
+
 			timeTwo = tempVecIn.at(i)->path;
 			break;
 		}
@@ -1344,7 +1347,7 @@ double calculateTime(string firstVar, string secondVar, string thirdVar, vector<
 
 	for (i = 0; i < tempVecIn.size(); i++) {
 		if (tempVecIn.at(i)->name == thirdVar) {
-			
+
 			timeThree = tempVecIn.at(i)->path;
 			break;
 		}
@@ -1673,7 +1676,7 @@ double findNodeTime(string modType, int bitWidth) {
 		}
 
 		else if (bitWidth == 64) {
-			return 6.503; 
+			return 6.503;
 		}
 	}
 
