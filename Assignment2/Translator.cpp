@@ -9,7 +9,7 @@
 using namespace std;
 
 int size = 0;
-
+//Gets the Netlist Lines.
 vector<string> getInputs(string str) {
 
 	vector<string> v;
