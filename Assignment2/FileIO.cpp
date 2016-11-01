@@ -10,7 +10,7 @@ std::vector<string> readFile(string inp) {
 
 	string line;
 	ifstream inFile;
-	inFile.open(inp);
+	inFile.open(inp.c_str());
 	vector<string> v;
 	
 	if (inFile.is_open()){
@@ -30,7 +30,7 @@ void writeFile(string outp, std::vector<string> v) {
 
 	int i;
 	string line;
-	ofstream outFile(outp);
+	ofstream outFile(outp.c_str());
 	
 	if (outFile.is_open())
 	{
