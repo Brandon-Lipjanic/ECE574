@@ -1,12 +1,12 @@
 #include "FileIO.h"
-#include "Translator.h"
 #include <stdio.h>
-#include "FileIO.h"
 #include "Translator.h"
 #include "Translator2.h"
 #include "vardef.h"
+#include "Node.h"
 #include <stdio.h>
 #include <string>
+using namespace std;
 
 int main() {
 	int i, j;
@@ -14,7 +14,7 @@ int main() {
 	vector<string> v1;
 	vector<string> v2;
 	vector<string> modulesString;
-	vector<vector<string>> master;
+	vector<vector<string> > master;
 	vector<int> signs;
 	vector<string> tempVecStr, tempVecStr2, tempVecStr3;
 	vector<string> out;
@@ -51,7 +51,6 @@ int main() {
 	tempVecStr2.push_back(tempEq);
 	tempVecStr2.push_back(tempLt);
 	//End Temp String for testing
-
 	*/
 
 
