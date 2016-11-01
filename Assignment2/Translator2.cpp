@@ -1298,9 +1298,6 @@ double calcCriticalPath(vector<string> inVec, vector <int> bitWidthVec) {
 
 	}
 
-	for (j = 0; j < allNodes.size(); j++) {
-		cout << endl << allNodes.at(j)->name;
-	}
 
 	return findMaxOfVector(allCriticalTimes);
 

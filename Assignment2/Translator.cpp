@@ -25,7 +25,7 @@ vector<string> getInputs(string str) {
 	string token;
 	while ((pos = str.find(delimiter)) != string::npos) {
 		token = str.substr(0, pos);
-		cout << token << endl;
+		//cout << token << endl;
 		str.erase(0, pos + delimiter.length());
 		v.push_back(token);
 	}
