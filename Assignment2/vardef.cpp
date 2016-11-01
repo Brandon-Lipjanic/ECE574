@@ -6,10 +6,11 @@
 #include <vector>
 #include <sstream>
 #include <algorithm>
+#include "vardef.h"
 
 using namespace std;
 
-vector<string> vardef(vector<vector<string>> master) {
+vector<string> vardef(vector<vector<string> > master) {
 	unsigned int i = 0;
 	unsigned int k = 0;//DELETEME
 	int var = 0;
@@ -26,9 +27,9 @@ vector<string> vardef(vector<vector<string>> master) {
 	while (i != master.size() - 1) {
 		var = 0;
 		//check if variable def
-		if (master.at(i).at(0).compare("input") == 0 || master.at(i).at(0).compare("output") == 0 || master.at(i).at(0).compare("register") == 0 || master.at(i).at(0).compare("wire") == 0){
-		var = 1;
-		out.push_back(master.at(i).at(0));
+		if (master.at(i).at(0).compare("input") == 0 || master.at(i).at(0).compare("output") == 0 || master.at(i).at(0).compare("register") == 0 || master.at(i).at(0).compare("wire") == 0) {
+			var = 1;
+			out.push_back(master.at(i).at(0));
 		}
 		if (var == 1) {
 			if (master.at(i).at(1).find("uint") == std::string::npos) {
@@ -39,7 +40,7 @@ vector<string> vardef(vector<vector<string>> master) {
 
 			}
 			else if (master.at(i).at(1).find("int") == std::string::npos) {
-/*
+				/*
 				out.at(i).append(" uint [");*/
 				out.at(i).append(" [");
 				master.at(i).at(1).erase(0, 4);
@@ -69,18 +70,18 @@ vector<string> vardef(vector<vector<string>> master) {
 		}
 		i++;
 	}
-	return out;	
+	return out;
 }
 
-string module(vector<vector<string>> master) {
+string module(vector<vector<string> > master) {
 	string output;
 	int i = 0;
 	int j = 0;
-	while (i < master.size() ) {
+	while (i < master.size()) {
 		if (master.at(i).at(0).compare("input") == 0 || master.at(i).at(0).compare("output") == 0) {
 			for (j = 2; j < master.at(i).size(); j++) {
 
-					output.append(" " + master.at(i).at(j) + ",");
+				output.append(" " + master.at(i).at(j) + ",");
 			}
 		}
 		i++;
