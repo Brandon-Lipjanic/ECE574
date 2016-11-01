@@ -17,10 +17,9 @@ vector<string> getInputs(string str) {
 	string delimiter = " ";
 	char chars[] = ",";
 
-	for (unsigned int i = 0; i < strlen(chars); ++i) {
-		str.erase(remove(str.begin(), str.end(), chars[i]), str.end());
-	}
-
+	
+		str.erase(remove(str.begin(), str.end(), chars[0]), str.end());
+	
 	size_t pos = 0;
 	string token;
 	while ((pos = str.find(delimiter)) != string::npos) {
