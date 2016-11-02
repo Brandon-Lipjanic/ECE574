@@ -84,7 +84,7 @@ vector<int> determinewidth(vector<vector<string> > v ) {
 	vector<int> width;
 	vector<int> temp_width;
 	vector<vector<string>> vd;
-
+	int DELETEME = 0;
 	vd = v;
 	
 		
@@ -100,12 +100,15 @@ vector<int> determinewidth(vector<vector<string> > v ) {
 		}
 			
 		for (x = 0; x < vd.size(); x++) {//extract number from vd.at(i).at(1)
-			if (vd.at(x).at(1).find("uint") == std::string::npos) {
-				vd.at(x).at(1).erase(0, 2);
+			if (vd.at(x).at(1).at(0) == 'U') {
+				vd.at(x).at(1).erase(0, 4);
 			}
-			else if (vd.at(x).at(1).find("int") == std::string::npos) {
+			else {
 				vd.at(x).at(1).erase(0, 3);
 			}
+			/*else if (vd.at(x).at(1).find("int") == std::string::npos) {
+				vd.at(x).at(1).erase(0, 3);
+			}*/
 		}
 		
 		for (i = 0; i < v.size(); ++i) {
