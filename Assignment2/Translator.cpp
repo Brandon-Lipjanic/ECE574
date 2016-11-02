@@ -101,10 +101,14 @@ vector<int> determinewidth(vector<vector<string> > v ) {
 			
 		for (x = 0; x < vd.size(); x++) {//extract number from vd.at(i).at(1)
 			if (vd.at(x).at(1).at(0) == 'U') {
-				vd.at(x).at(1).erase(0, 4);
+				vd.at(x).at(1).erase(0,0);
+				vd.at(x).at(1).erase(0,0);
+				vd.at(x).at(1).erase(0,0);
+
 			}
 			else {
-				vd.at(x).at(1).erase(0, 3);
+				vd.at(x).at(1).erase(0,0);
+				vd.at(x).at(1).erase(0,0);
 			}
 			/*else if (vd.at(x).at(1).find("int") == std::string::npos) {
 				vd.at(x).at(1).erase(0, 3);
