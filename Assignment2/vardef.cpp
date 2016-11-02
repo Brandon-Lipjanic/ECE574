@@ -36,17 +36,14 @@ vector<string> vardef(vector<vector<string> > master) {
 
 				/*out.at(i).append(" int [");*/
 				out.at(i).append(" [");
-				master.at(i).at(1).erase(0);
-				master.at(i).at(1).erase(0);
-				master.at(i).at(1).erase(0);
+				master.at(i).at(1).erase(0, 4);
 
 			}
 			else {
 				/*
 				out.at(i).append(" uint [");*/
 				out.at(i).append(" [");
-				master.at(i).at(1).erase(0);
-				master.at(i).at(1).erase(0);
+				master.at(i).at(1).erase(0, 3);
 			}
 			//else if (master.at(i).at(1).find("int") == std::string::npos) {
 			//	/*
