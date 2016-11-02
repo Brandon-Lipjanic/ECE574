@@ -8,11 +8,7 @@
 #include <string>
 using namespace std;
 
-int main(int argc, char* argv[]) {
-
-	if (argc != 3) {
-		return 0;
-	}
+int main() {
 	int i, j;
 	vector<string> v;
 	vector<string> v1;
@@ -23,7 +19,7 @@ int main(int argc, char* argv[]) {
 	vector<string> tempVecStr, tempVecStr2, tempVecStr3;
 	vector<string> out;
 	vector<int> bitWidth;
-	string outp = argv[2];
+	string outp = "outputFile.v";
 	double criticalPath = -1;
 
 	/*
@@ -58,7 +54,7 @@ int main(int argc, char* argv[]) {
 	*/
 
 
-	v = readFile(argv[1]);
+	v = readFile("474a_circuit2.txt");
 
 	for (i = 0; i < v.size(); i++) {
 		if (v.at(i).find('=') != string::npos) {
@@ -75,7 +71,7 @@ int main(int argc, char* argv[]) {
 		if (v[j] != "")
 			v2.push_back(v[j]);
 	}
-	
+
 	signs = determineSign(master);
 	bitWidth = determinewidth(master);
 
@@ -92,11 +88,11 @@ int main(int argc, char* argv[]) {
 
 	cout << "Critical Path: " << criticalPath << " ns" << endl;
 	/*
-	//for (i = 0; i < tempVecStr.size(); i++) {
-	//cout << tempVecStr.at(i) << endl;
-	//}
+	for (i = 0; i < tempVecStr.size(); i++) {
+	cout << tempVecStr.at(i) << endl;
+	}
 	*/
 	writeFile(outp, out);
-	
+
 	return 0;
 }
