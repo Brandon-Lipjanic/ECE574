@@ -87,7 +87,7 @@ vector<int> determinewidth(vector<vector<string> > v ) {
 
 	vd = v;
 	
-	
+		
 		//delete all non variable definition statements from vd. vd becomes a separated variable definition vector
 		for (x = vd.size()-1; x >= 0; x--) {
 			if (vd.at(x).at(0).compare("input") != 0 && vd.at(x).at(0).compare("output") != 0 && vd.at(x).at(0).compare("register") != 0 && vd.at(x).at(0).compare("wire") != 0) {
@@ -98,6 +98,7 @@ vector<int> determinewidth(vector<vector<string> > v ) {
 			//	vd.pop_back();
 			//}
 		}
+			
 		for (x = 0; x < vd.size(); x++) {//extract number from vd.at(i).at(1)
 			if (vd.at(x).at(1).find("uint") == std::string::npos) {
 				vd.at(x).at(1).erase(0, 3);
@@ -106,7 +107,7 @@ vector<int> determinewidth(vector<vector<string> > v ) {
 				vd.at(x).at(1).erase(0, 2);
 			}
 		}
-
+		
 		for (i = 0; i < v.size(); ++i) {
 			//look at v to determine if line 
 			if (v.at(i).at(0) == "input" || v.at(i).at(0) == "output" || v.at(i).at(0) == "wire" || v.at(i).at(0) == "register" || v.at(i).at(0) == "") {}//do nothing
@@ -151,6 +152,6 @@ vector<int> determinewidth(vector<vector<string> > v ) {
 				}
 
 			}
-	}
+		}
 	return width;
 }
