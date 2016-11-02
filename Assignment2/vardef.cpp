@@ -32,19 +32,25 @@ vector<string> vardef(vector<vector<string> > master) {
 			out.push_back(master.at(i).at(0));
 		}
 		if (var == 1) {
-			if (master.at(i).at(1).find("uint") == std::string::npos) {
+			if (master.at(i).at(1).at(0) == 'U') {
 
 				/*out.at(i).append(" int [");*/
 				out.at(i).append(" [");
-				master.at(i).at(1).erase(0, 3);
+				master.at(i).at(1).erase(0, 4);
 
 			}
-			else if (master.at(i).at(1).find("int") == std::string::npos) {
+			else {
 				/*
 				out.at(i).append(" uint [");*/
 				out.at(i).append(" [");
-				master.at(i).at(1).erase(0, 4);
+				master.at(i).at(1).erase(0, 3);
 			}
+			//else if (master.at(i).at(1).find("int") == std::string::npos) {
+			//	/*
+			//	out.at(i).append(" uint [");*/
+			//	out.at(i).append(" [");
+			//	master.at(i).at(1).erase(0, 3);
+			//}
 			//add data width
 			n_string = master.at(i).at(1);
 			n_int = stoi(n_string);
