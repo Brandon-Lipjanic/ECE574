@@ -32,19 +32,11 @@ vector<string> vardef(vector<vector<string> > master) {
 			out.push_back(master.at(i).at(0));
 		}
 		if (var == 1) {
-			if (master.at(i).at(1).at(0) == 'U') {
-
-				/*out.at(i).append(" int [");*/
+					//vd.at(x).at(1).erase(0,4);
 				out.at(i).append(" [");
-				master.at(i).at(1).erase(0, 4);
-
-			}
-			else {
-				/*
-				out.at(i).append(" uint [");*/
-				out.at(i).append(" [");
-				master.at(i).at(1).erase(0, 3);
-			}
+				size_t temp2 = master.at(i).at(1).find_first_of("t");
+				master.at(i).at(1) = master.at(i).at(1).at(temp2 + 1), master.at(i).at(1).length();
+			
 			//else if (master.at(i).at(1).find("int") == std::string::npos) {
 			//	/*
 			//	out.at(i).append(" uint [");*/
@@ -76,7 +68,6 @@ vector<string> vardef(vector<vector<string> > master) {
 		}
 		i++;
 	}
-	cout << "TEST 4";
 	return out;
 }
 
@@ -93,7 +84,7 @@ string module(vector<vector<string> > master) {
 		}
 		i++;
 	}
-	output.erase(output.size() - 1);
+	output.erase(output.end());
 	output.append(");");
 	return output;
 }

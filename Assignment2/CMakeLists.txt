@@ -25,4 +25,4 @@ file( GLOB SRCS *.cpp *.h )
 # Define the target application executable and the list of CPP source
 # and header files needed for the executable.
 add_definitions(-std=c++11)
-add_executable( weighs ${SRCS} )
+add_executable( Assignment2 ${SRCS} )
