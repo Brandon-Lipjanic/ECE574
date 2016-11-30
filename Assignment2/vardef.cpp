@@ -31,7 +31,7 @@ vector<string> vardef(vector<vector<string> > master) {
 		if (master.at(i).at(0).compare("input") == 0 || master.at(i).at(0).compare("output") == 0 || master.at(i).at(0).compare("register") == 0 || master.at(i).at(0).compare("wire") == 0) {
 			var = 1;
 			if (master.at(i).at(0).compare("register") == 0) {
-				out.push_back("reg");
+				out.push_back("wire");
 			}
 			else {
 				out.push_back(master.at(i).at(0));
