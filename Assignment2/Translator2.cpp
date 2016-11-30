@@ -25,10 +25,8 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> signs, vecto
 
 
 
-
 	for (i = 0; i < inVec.size(); i++) {
 		tempStr = inVec.at(i);
-
 		if (tempStr.find('=') != string::npos) {
 
 			if (tempStr.find('+') != string::npos && tempStr.find("+ 1") == string::npos) {
@@ -465,7 +463,7 @@ vector<string> TranslateMainBlock(vector<string> inVec, vector<int> signs, vecto
 					newStr = string("SMOD") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" modulo") + string(to_string(i)) + string("( .a(");
 				}
 				else {
-					newStr = string("MOD") + string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" modulo") + string(to_string(i)) + string("( .a(");
+					newStr = string("MOD") +  string("#(") + string(to_string(bitWidth.at(i))) + string(")") + string(" modulo") + string(to_string(i)) + string("( .a(");
 				}
 				//Find first variable name
 				found = tempStr.find_first_of('=');

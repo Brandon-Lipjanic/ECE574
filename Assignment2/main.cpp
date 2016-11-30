@@ -24,6 +24,8 @@ int main(int argc, char* argv[]) {
 	vector<string> out;
 	vector<int> bitWidth;
 	string outp = argv[2];
+	////////////////////////////////////////////////
+	string in = argv[1];
 	double criticalPath = -1;
 
 	/*
@@ -78,8 +80,9 @@ int main(int argc, char* argv[]) {
 	
 	signs = determineSign(master);
 	bitWidth = determinewidth(master);
-
-	out.push_back("module Assignment2(" + module(master));
+	//////////////////////////////////
+	in= "A2" + in.substr(0, in.length() - 4);
+	out.push_back("module " + in + "(" + module(master));
 	tempVecStr2 = vardef(master);
 	out.insert(out.end(), tempVecStr2.begin(), tempVecStr2.end());
 	tempVecStr = TranslateMainBlock(modulesString, signs, bitWidth);
