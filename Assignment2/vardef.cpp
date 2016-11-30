@@ -17,6 +17,7 @@ vector<string> vardef(vector<vector<string> > master) {
 	int var = 0;
 	int n_int;
 	string n_string;
+	int counter = 0;
 	vector<vector<string>> inputs;	//vector of input variables
 	vector<vector<string>>  outputs;	//vector of output variabels
 	vector<vector<string>>  wires;	//vector of wire variabels
@@ -65,17 +66,28 @@ vector<string> vardef(vector<vector<string> > master) {
 			k = 2;
 			while (k < master.at(i).size())
 			{
-				out.at(i).append(master.at(i).at(k));
-				if (k != (master.at(i).size() - 1)) {
+				if (master.at(i).at(k).compare("") != 0) {
+					out.at(i).append(master.at(i).at(k));
 
-					out.at(i).append(", ");
-				}
-				else {
-					out.at(i).append(";");
+					/*if (k != (master.at(i).size() - 1)) {*/
+
+						out.at(i).append(", ");
+					//}
+					/*else {
+						out.at(i).append(";");
+					}*/
 				}
 				k++;
 			}
 		}
+		//out.at(i).replace(out.at(i).length()-1, out.at(i).length()-1, ',', ';');
+		//out.at(i).erase(out.at(i).length()-2, out.at(i).length());
+		
+		if (counter < out.size()) {
+
+			out.at(i).at(out.at(i).length() - 2) = ';';
+		}
+		counter = out.size();
 		i++;
 	}
 	out.insert(out.begin(), "input Rst, Clk;");
