@@ -77,14 +77,14 @@ vector<int> determinewidth(vector<vector<string> > v ) {
 
 	int i = 0;
 	int k = 0;
-
 	int x = 0; //variable for creating vardef vector
 	int y = 0;
 	int found = 0;
-	int temp, temp2;
+	int temp;
 	vector<int> width;
 	vector<int> temp_width;
 	vector<vector<string>> vd;
+	int DELETEME = 0;
 	vd = v;
 	
 		
@@ -101,16 +101,10 @@ vector<int> determinewidth(vector<vector<string> > v ) {
 			
 		for (x = 0; x < vd.size(); x++) {//extract number from vd.at(i).at(1)
 			if (vd.at(x).at(1).at(0) == 'U') {
-				//vd.at(x).at(1).erase(0,4);
-				size_t temp2 = vd.at(x).at(1).find_first_of("t");
-				//vd.at(x).at(1) = vd.at(x).at(1).at(temp2 + 1), vd.at(x).at(1).length()-1;
-				vd.at(x).at(1) = vd.at(x).at(1).substr(temp2 + 1, vd.at(x).at(1).length() - 1);
+				vd.at(x).at(1).erase(0, 4);
 			}
 			else {
-				//vd.at(x).at(1).erase(0,3);
-				size_t temp2 = vd.at(x).at(1).find_first_of("t");
-				vd.at(x).at(1) = vd.at(x).at(1).substr(temp2 + 1, vd.at(x).at(1).length() - 1);
-				//vd.at(x).at(1) = vd.at(x).at(1).at(temp2 + 1), vd.at(x).at(1).length()-1;
+				vd.at(x).at(1).erase(0, 3);
 			}
 			/*else if (vd.at(x).at(1).find("int") == std::string::npos) {
 				vd.at(x).at(1).erase(0, 3);

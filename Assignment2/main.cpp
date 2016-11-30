@@ -23,9 +23,8 @@ int main(int argc, char* argv[]) {
 	vector<string> tempVecStr, tempVecStr2, tempVecStr3;
 	vector<string> out;
 	vector<int> bitWidth;
-	string outp = argv[2];
-	////////////////////////////////////////////////
 	string in = argv[1];
+	string outp = argv[2];
 	double criticalPath = -1;
 
 	/*
@@ -80,8 +79,8 @@ int main(int argc, char* argv[]) {
 	
 	signs = determineSign(master);
 	bitWidth = determinewidth(master);
-	//////////////////////////////////
-	in= "A2" + in.substr(0, in.length() - 4);
+////////////////////
+	in = "A2" + in.substr(0, in.length() - 4);
 	out.push_back("module " + in + "(" + module(master));
 	tempVecStr2 = vardef(master);
 	out.insert(out.end(), tempVecStr2.begin(), tempVecStr2.end());
